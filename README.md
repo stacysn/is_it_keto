@@ -4,8 +4,10 @@
 <img src="https://i.imgur.com/ZoRGpwi.jpg" height="75%" width="75%">
 <img src="https://i.imgur.com/D6Ec3Rt.jpg" height="75%" width="75%">
 <h2>Technologies:</h2>
-<a href="https://reactjs.org/">React.js</a>
-<a href="https://sass-lang.com/">Sass</a>
+<ul>
+	<li><a href="https://reactjs.org/">React.js</a></li>
+	<li><a href="https://sass-lang.com/">Sass</a></li>
+</ul>	
 																
                                                                   
                                                                   
