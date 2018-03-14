@@ -4,7 +4,10 @@ import React, { Component } from 'react'
 class SearchContainer extends Component {
   render () {
     return (
-      <h1> SearchContainer </h1>
+      <div>
+        <h1> SearchContainer </h1>
+        <Results />
+      </div>
     )
   }
 }
