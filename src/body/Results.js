@@ -630,7 +630,13 @@ class Results extends Component {
       ]
     };
 
-    return <h1> Results </h1>;
+    return (
+      <div>
+        <h1> Results </h1>
+        <p>{dummyResults.foods[0].food_name}</p>
+        <p>{dummyResults.foods[0].nf_total_carbohydrate - dummyResults.foods[0].nf_dietary_fiber}</p>
+      </div>
+    );
   }
 }
 export default Results;
