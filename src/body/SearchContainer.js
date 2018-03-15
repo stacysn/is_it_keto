@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import Results from './Results'
+
 
 class SearchContainer extends Component {
   render () {
