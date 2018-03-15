@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 import React, { Component } from 'react';
+=======
+import React, { Component } from 'react'
+
+import Results from './Results'
+
+>>>>>>> upstream/master
 
 class SearchContainer extends Component {
   constructor(props) {
@@ -46,6 +53,7 @@ class SearchContainer extends Component {
     return (
       <div>
         <h1> SearchContainer </h1>
+<<<<<<< HEAD
 
         <form onSubmit={this.handleSubmit} >
 
@@ -56,6 +64,9 @@ class SearchContainer extends Component {
           {/* place Results component tag here and pass state */}
 
         </form>
+=======
+        <Results />
+>>>>>>> upstream/master
       </div>
     )
   }
