@@ -79,14 +79,33 @@ class Results extends Component {
         }
       ]
     };
-
-    return (
-      <div>
-        <h1> Results </h1>
-        <p>{dummyResults.foods[0].food_name}</p>
-        <p>{dummyResults.foods[0].nf_total_carbohydrate - dummyResults.foods[0].nf_dietary_fiber}</p>
-      </div>
-    );
+    if (
+      dummyResults.foods[0].nf_total_carbohydrate -
+        dummyResults.foods[0].nf_dietary_fiber <
+      10
+    ) {
+      return (
+        <div>
+          <h1> Results </h1>
+          <p>{dummyResults.foods[0].food_name} is Keto!</p>
+          <p>
+            {dummyResults.foods[0].nf_total_carbohydrate -
+              dummyResults.foods[0].nf_dietary_fiber}g of carbs!
+          </p>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <h1> Results </h1>
+          <p>{dummyResults.foods[0].food_name} is not Keto!</p>
+          <p>
+            {dummyResults.foods[0].nf_total_carbohydrate -
+              dummyResults.foods[0].nf_dietary_fiber}g of carbs!
+          </p>
+        </div>
+      );
+    }
   }
 }
 export default Results;
