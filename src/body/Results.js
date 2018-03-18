@@ -13,15 +13,21 @@ class Results extends Component {
     return (
       <div>
         <h1>Results</h1>
-        <ul id="results">
+        <div id="results">
           {this.props.results.map((element, index) => {
+            let totalCarbs = this.props.results[index].nf_total_carbohydrate;
+            let dietaryFiber = this.props.results[index].nf_dietary_fiber;
+            let netCarbs = this.props.results[index].nf_total_carbohydrate - this.props.results[index].nf_dietary_fiber;
             return (
-              <li key={index}>
-                {this.props.results[index].food_name}
-              </li>
+              <div key={index}>
+                <b>{this.props.results[index].food_name}</b>
+                <p>{totalCarbs}g Total Carbs</p>
+                <p>&mdash; {dietaryFiber}g Dietary Fiber</p>
+                <p>= {netCarbs}g Net Carbs</p>
+              </div>
             )
           })}
-        </ul>
+        </div>
       </div>
     );
   }
