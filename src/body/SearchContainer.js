@@ -1,7 +1,5 @@
-import React, { Component } from 'react'
-
-import Results from './Results'
-
+import React, { Component } from "react";
+import Results from "./Results";
 
 class SearchContainer extends Component {
   constructor(props) {
@@ -45,22 +43,21 @@ class SearchContainer extends Component {
     })
   };
 
-  render () {
-    return (
+  render() {
+    return(
       <div>
-        <h1> SearchContainer </h1>
+        <h1>SearchContainer</h1>
 
-        <form onSubmit={this.handleSubmit} >
-
+        <form onSubmit={this.handleSubmit}>
           <input id="searchInput" placeholder="Example: For breakfast I had 2 large eggs, 3 pieces of bacon, and 1 medium avocado" type="text" required />
 
           <input type="submit" value="Submit" />
 
           <Results results={this.state.results} />
-
         </form>
       </div>
     )
   }
 }
+
 export default SearchContainer;
