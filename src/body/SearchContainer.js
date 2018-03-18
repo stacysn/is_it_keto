@@ -56,7 +56,7 @@ class SearchContainer extends Component {
 
           <input type="submit" value="Submit" />
 
-          <Results />
+          <Results results={this.state.results} />
 
         </form>
       </div>
