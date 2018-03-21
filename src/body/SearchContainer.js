@@ -45,7 +45,7 @@ class SearchContainer extends Component {
   render() {
     return (
       <div className="search-container">
-        <h1> SearchContainer </h1>
+        <h1>SearchContainer</h1>
 
         <form onSubmit={this.handleSubmit}>
           <input
@@ -57,11 +57,11 @@ class SearchContainer extends Component {
 
           <input type="submit" value="Submit" />
           <br />
-
-          <Results />
+          <Results results={this.state.results} />
         </form>
       </div>
     );
   }
 }
+
 export default SearchContainer;

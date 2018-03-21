@@ -1,112 +1,50 @@
 import React, { Component } from "react";
-import '../assets/styles/Results.css';
+import "../assets/styles/Results.css";
 
 class Results extends Component {
   constructor(props, context) {
-    super(props, context);
-
-    this.state = {
-      isKeto: null
-    };
+    super(props);
   }
 
   render() {
-    let dummyResults = {
-      foods: [
-        {
-          food_name: "cheetos",
-          brand_name: null,
-          serving_qty: 1,
-          serving_unit: "package 1.25 oz",
-          serving_weight_grams: 35,
-          nf_calories: 196,
-          nf_total_fat: 12.6,
-          nf_saturated_fat: 1.88,
-          nf_cholesterol: 2.45,
-          nf_sodium: 329.7,
-          nf_total_carbohydrate: 18.74,
-          nf_dietary_fiber: 0.49,
-          nf_sugars: 1.12,
-          nf_protein: 2.05,
-          nf_potassium: 63.7,
-          nf_p: 46.55,
-          nix_brand_name: null,
-          nix_brand_id: null,
-          nix_item_name: null,
-          nix_item_id: null,
-          upc: null,
-          consumed_at: "2018-03-15T05:01:39+00:00",
-          metadata: {
-            is_raw_food: false
-          },
-          source: 1,
-          ndb_no: 19008,
-          tags: {
-            item: "cheetos",
-            measure: null,
-            quantity: "1.0",
-            food_group: 0,
-            tag_id: 1671
-          },
-          alt_measures: [
-            {
-              serving_weight: 35,
-              measure: "package 1.25 oz",
-              seq: 2,
-              qty: 1
-            },
-            {
-              serving_weight: 28.35,
-              measure: "oz",
-              seq: 1,
-              qty: 1
-            },
-            {
-              serving_weight: 100,
-              measure: "g",
-              seq: null,
-              qty: 100
-            }
-          ],
-          lat: null,
-          lng: null,
-          meal_type: 5,
-          photo: {
-            thumb: "https://d2xdmhkmkbyw75.cloudfront.net/1671_thumb.jpg",
-            highres: "https://d2xdmhkmkbyw75.cloudfront.net/1671_highres.jpg",
-            is_user_uploaded: false
-          },
-          sub_recipe: null
-        }
-      ]
-    };
-    if (
-      dummyResults.foods[0].nf_total_carbohydrate -
-        dummyResults.foods[0].nf_dietary_fiber <
-      10
-    ) {
-      return (
-        <div className = "results-container">
-          <h1> Results </h1>
-          <p>{dummyResults.foods[0].food_name} is Keto!</p>
-          <p>
-            {dummyResults.foods[0].nf_total_carbohydrate -
-              dummyResults.foods[0].nf_dietary_fiber}g of carbs!
-          </p>
+    return (
+      <div className = "results-container">
+        <h1>Results</h1>
+        <div id="results">
+          {this.props.results.map((element, index) => {
+            const foodName = food => {
+              return food.charAt(0).toUpperCase() + food.slice(1);
+            };
+            const totalCarbs = this.props.results[index].nf_total_carbohydrate;
+            const servingSize = `${this.props.results[index].serving_qty}  ${
+              this.props.results[index].serving_unit
+            }`;
+            const servingSizeGrams = this.props.results[index]
+              .serving_weight_grams;
+            const dietaryFiber = this.props.results[index].nf_dietary_fiber;
+            const netCarbs =
+              this.props.results[index].nf_total_carbohydrate -
+              this.props.results[index].nf_dietary_fiber;
+
+            return (
+              <div key={index}>
+                <b>
+                  {foodName(this.props.results[index].food_name)} &mdash;{" "}
+                  {netCarbs < 10 ? "Keto-friendly!" : "not Keto-friendly."}
+                </b>
+                <p>
+                  Serving size: {servingSize} ({servingSizeGrams} g)
+                </p>
+                <p>{totalCarbs} g Total Carbs</p>
+                <p>&mdash; {dietaryFiber} g Dietary Fiber</p>
+                <p>= {netCarbs} g Net Carbs</p>
+              </div>
+            );
+          })}
         </div>
-      );
-    } else {
-      return (
-        <div className = "results-container">
-          <h1> Results </h1>
-          <p>{dummyResults.foods[0].food_name} is not Keto!</p>
-          <p>
-            {dummyResults.foods[0].nf_total_carbohydrate -
-              dummyResults.foods[0].nf_dietary_fiber}g of carbs!
-          </p>
-        </div>
-      );
-    }
+      </div>
+    );
   }
 }
+
 export default Results;
