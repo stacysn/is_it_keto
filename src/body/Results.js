@@ -8,7 +8,7 @@ class Results extends Component {
 
   render() {
     return (
-      <div className = "results-container">
+      <div className="results-container">
         <h1>Results</h1>
         <div id="results">
           {this.props.results.map((element, index) => {
@@ -22,9 +22,10 @@ class Results extends Component {
             const servingSizeGrams = this.props.results[index]
               .serving_weight_grams;
             const dietaryFiber = this.props.results[index].nf_dietary_fiber;
-            const netCarbs =
+            const netCarbs = (
               this.props.results[index].nf_total_carbohydrate -
-              this.props.results[index].nf_dietary_fiber;
+              this.props.results[index].nf_dietary_fiber
+            ).toFixed(2);
 
             return (
               <div key={index}>
@@ -41,7 +42,6 @@ class Results extends Component {
                 <p>= {netCarbs} g Net Carbs</p>
               </div>
             );
-
           })}
         </div>
       </div>
