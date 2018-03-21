@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import '../assets/styles/Results.css';
 
 class Results extends Component {
   constructor(props, context) {
@@ -85,7 +86,7 @@ class Results extends Component {
       10
     ) {
       return (
-        <div>
+        <div className = "results-container">
           <h1> Results </h1>
           <p>{dummyResults.foods[0].food_name} is Keto!</p>
           <p>
@@ -96,7 +97,7 @@ class Results extends Component {
       );
     } else {
       return (
-        <div>
+        <div className = "results-container">
           <h1> Results </h1>
           <p>{dummyResults.foods[0].food_name} is not Keto!</p>
           <p>
