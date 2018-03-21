@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "../assets/styles/Results.css";
 
 class Results extends Component {
-  constructor(props, context) {
+  constructor(props) {
     super(props);
   }
 
@@ -35,11 +35,13 @@ class Results extends Component {
                 <p>
                   Serving size: {servingSize} ({servingSizeGrams} g)
                 </p>
+
                 <p>{totalCarbs} g Total Carbs</p>
                 <p>&mdash; {dietaryFiber} g Dietary Fiber</p>
                 <p>= {netCarbs} g Net Carbs</p>
               </div>
             );
+
           })}
         </div>
       </div>
