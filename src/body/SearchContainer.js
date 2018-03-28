@@ -33,6 +33,7 @@ class SearchContainer extends Component {
         console.log("Error: " + response.status);
         return;
       }
+      // TODO: .fail this console log
 
       response.json().then(data => {
         const results = data.foods;
