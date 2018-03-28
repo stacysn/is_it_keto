@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import FoodIndexItem from "./foodIndexItem";
+import FoodIndexItem from "./FoodIndexItem";
 import "../assets/styles/Results.css";
 
 class Results extends Component {
