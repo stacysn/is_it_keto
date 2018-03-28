@@ -1,18 +1,31 @@
 //server.js
 'use strict'
+
 //first we import our dependencies…
-var express = require('express');
-var mongoose = require('mongoose');
-var bodyParser = require('body-parser');
+const express = require('express');
+const bodyParser = require('body-parser');
+const User = require('./models/user');
+const mongoose = require('mongoose');
+const mongoDB = "mongodb://keto:bacon5@ds215019.mlab.com:15019/is-it-keto";
+mongoose.connect(mongoDB,{ useMongoClient: true });
+mongoose.Promise = global.Promise;
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
 //and create our instances
-var app = express();
-var router = express.Router();
+const app = express();
+const router = express.Router();
 //set our port to either a predetermined port number if you have set
 //it up, or 3001
-var port = process.env.API_PORT || 3001;
+const port = process.env.PORT || 3001;
+
+//body-parser config to accept our datatypes
+app.use(bodyParser.urlencoded({ extended: true }));
+//require models
+// const db = require("./models");
 
 //db config
-mongoose.connect('mongodb://<blueCheese5>:<bacon5>@ds215019.mlab.com:15019/is-it-keto')
+// mongoose.connect('mongodb://keto:bacon5@ds215019.mlab.com:15019/is-it-keto')
 //now we should configure the API to use bodyParser and look for
 //JSON data in the request body
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -27,10 +40,29 @@ app.use(function(req, res, next) {
   res.setHeader('Cache-Control', 'no-cache');
   next();
 });
+
 //now we can set the route path & initialize the API
 router.get('/', function(req,res) {
   res.json({message: 'API Initialized!'});
 });
+
+router.route('/users')
+  .get(function(req, res){
+    User.find(function(err, users){
+      if (err) res.send(err);
+      res.json(users)
+    });
+  }) 
+  .post(function(req, res) {
+    let user = new User();
+    user.name = "Stacy";
+
+    user.save(function(err) {
+      if (err) res.send(err);
+      res.json({ message: 'User successfully added!' });
+    });
+    
+  })
 //Use our router configuration when we call /api
 app.use('/api', router);
 //starts the server and listens for requests
