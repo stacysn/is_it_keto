@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import FoodIndexItem from "./foodIndexItem";
+import "../assets/styles/Results.css";
 
 class Results extends Component {
   constructor(props, context) {
@@ -14,13 +15,13 @@ class Results extends Component {
 
   isKeto(netCarbs) {
     return(
-      netCarbs < 10 ? <span>Keto-friendly.</span> : <span>Not Keto-friendly.</span>
+      netCarbs < 10 ? <span>Keto-friendly!</span> : <span>Not Keto-friendly.</span>
     )
   }
 
   render() {
-    return(
-      <div>
+    return (
+      <div className="results-container">
         <h1>Results</h1>
         <div id="results">
           {this.props.results.map( (element, index) => {
@@ -28,7 +29,7 @@ class Results extends Component {
             const servingSize = `${element.serving_qty}  ${element.serving_unit}`;
             const servingSizeGrams = element.serving_weight_grams;
             const dietaryFiber = element.nf_dietary_fiber;
-            const netCarbs = element.nf_total_carbohydrate - element.nf_dietary_fiber;
+            const netCarbs = (element.nf_total_carbohydrate - element.nf_dietary_fiber).toFixed(2);
 
             return(
               <FoodIndexItem

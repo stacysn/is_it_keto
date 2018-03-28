@@ -1,17 +1,18 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Header from './head/Header.js';
-import SearchContainer from './body/SearchContainer.js'
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./assets/styles/App.css";
+import { Switch, Route } from "react-router-dom";
 
+import Home from "./pages/Home.js";
+import Profile from "./pages/Profile.js";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Header />
-        <SearchContainer />
-      </div>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/profile" component={Profile} />
+      </Switch>
     );
   }
 }
