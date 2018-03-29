@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Provider } from 'react-redux';
 import store from '../redux/store';
-import Login from "./Login.js";
+import LoginForm from "./LoginForm.js";
 import "../assets/styles/Header.css";
 
 class Header extends Component {
@@ -9,7 +9,7 @@ class Header extends Component {
     return (
       <div className="header">
         <h1> Keto Header </h1>
-        <Login />
+        <LoginForm store={store}/>
       </div>
     );
   }
