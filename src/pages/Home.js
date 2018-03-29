@@ -1,15 +1,16 @@
 import React, { Component } from "react";
-import SearchContainer from "../body/SearchContainer.js";
 import Header from "../head/Header.js";
+import FoodSearchContainer from "../body/food/FoodSearchContainer.js";
 
 class Home extends Component {
   render() {
     return (
       <div className="App">
         <Header />
-        <SearchContainer />
+        <FoodSearchContainer />
       </div>
     );
   }
 }
+
 export default Home;

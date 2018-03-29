@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "../assets/styles/SearchContainer.css";
-import Results from "./Results";
+import "../../assets/styles/FoodSearchContainer.css";
+import FoodResults from "./FoodResults";
 
-class SearchContainer extends Component {
+class FoodSearchContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -45,8 +45,8 @@ class SearchContainer extends Component {
 
   render() {
     return (
-      <div className="search-container">
-        <h1>SearchContainer</h1>
+      <div className="food-search-container">
+        <h1>FoodSearchContainer</h1>
 
         <form onSubmit={this.handleSubmit}>
           <input
@@ -58,11 +58,11 @@ class SearchContainer extends Component {
 
           <input type="submit" value="Submit" />
           <br />
-          <Results results={this.state.results} />
+          <FoodResults results={this.state.results} />
         </form>
       </div>
     );
   }
 }
 
-export default SearchContainer;
+export default FoodSearchContainer;

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../assets/styles/FoodIndexItem.css";
+import "../../assets/styles/FoodIndexItem.css";
 
 class FoodIndexItem extends Component {
   render() {
@@ -14,7 +14,7 @@ class FoodIndexItem extends Component {
     } = this.props;
 
     return(
-      <div class="food-idx-item">
+      <div className="food-idx-item">
         <b>{foodName} &mdash; {isKeto}</b>
         <p>Serving size: {servingSize} ({servingSizeGrams} g)</p>
         <p>{totalCarbs} g Total Carbs</p>
