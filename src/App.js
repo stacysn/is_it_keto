@@ -5,6 +5,7 @@ import { Switch, Route } from "react-router-dom";
 
 import Home from "./pages/Home.js";
 import Profile from "./pages/Profile.js";
+import SignUp from "./pages/SignUp.js";
 
 class App extends Component {
   render() {
