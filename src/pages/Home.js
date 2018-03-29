@@ -1,15 +1,18 @@
 import React, { Component } from "react";
-import SearchContainer from "../body/SearchContainer.js";
 import Header from "../head/Header.js";
+import FoodSearchContainer from "../body/food/FoodSearchContainer.js";
+import ExerciseSearchContainer from "../body/exercise/ExerciseSearchContainer.js";
 
 class Home extends Component {
   render() {
     return (
       <div className="App">
         <Header />
-        <SearchContainer />
+        <FoodSearchContainer />
+        <ExerciseSearchContainer />
       </div>
     );
   }
 }
+
 export default Home;

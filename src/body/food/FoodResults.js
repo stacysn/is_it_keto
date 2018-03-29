@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import FoodIndexItem from "./FoodIndexItem";
-import "../assets/styles/Results.css";
+import "../../assets/styles/FoodResults.css";
 
-class Results extends Component {
+class FoodResults extends Component {
   constructor(props, context) {
     super(props, context);
     this.foodName = this.foodName.bind(this);
@@ -21,9 +21,9 @@ class Results extends Component {
 
   render() {
     return (
-      <div className="results-container">
-        <h1>Results</h1>
-        <div id="results">
+      <div className="food-results-container">
+        <h1>FoodResults</h1>
+        <div id="food-results">
           {this.props.results.map( (element, index) => {
             const totalCarbs = element.nf_total_carbohydrate;
             const servingSize = `${element.serving_qty}  ${element.serving_unit}`;
@@ -50,4 +50,4 @@ class Results extends Component {
   }
 }
 
-export default Results;
+export default FoodResults;

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "../assets/styles/SearchContainer.css";
-import Results from "./Results";
+import "../../assets/styles/FoodSearchContainer.css";
+import FoodResults from "./FoodResults";
 
-class SearchContainer extends Component {
+class FoodSearchContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,7 +14,7 @@ class SearchContainer extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    let foodSearchQuery = document.getElementById("searchInput").value;
+    let foodSearchQuery = document.getElementById("foodSearchInput").value;
     const key = "381d57068dd3a75a7f6dc82f3b275f65";
     const appId = "2e1bc7f0";
 
@@ -45,12 +45,12 @@ class SearchContainer extends Component {
 
   render() {
     return (
-      <div className="search-container">
-        <h1>SearchContainer</h1>
+      <div className="food-search-container">
+        <h1>FoodSearchContainer</h1>
 
         <form onSubmit={this.handleSubmit}>
           <input
-            id="searchInput"
+            id="foodSearchInput"
             placeholder="Example: For breakfast I had 2 large eggs, 3 pieces of bacon, and 1 medium avocado"
             type="text"
             required
@@ -58,11 +58,11 @@ class SearchContainer extends Component {
 
           <input type="submit" value="Submit" />
           <br />
-          <Results results={this.state.results} />
+          <FoodResults results={this.state.results} />
         </form>
       </div>
     );
   }
 }
 
-export default SearchContainer;
+export default FoodSearchContainer;
