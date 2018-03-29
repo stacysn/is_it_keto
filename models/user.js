@@ -2,6 +2,7 @@ const mongoose = require("mongoose"),
   Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
+  userName: String,
   name: String,
   weight: Number
   // foodEntry: {
