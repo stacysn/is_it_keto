@@ -2,7 +2,9 @@ const mongoose = require("mongoose"),
   Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-  name: String
+  userName: String,
+  name: String,
+  weight: Number
   // foodEntry: {
   //   type: Schema.Types.ObjectId,
   //   ref: "FoodEntry"
