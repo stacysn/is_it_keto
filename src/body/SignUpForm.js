@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "../assets/styles/SignUpForm.css";
 
 class SignUpForm extends Component {
   constructor(props) {
@@ -6,7 +7,7 @@ class SignUpForm extends Component {
   }
 
   render() {
-    return <h1Form</h1>;
+    return <h1>Form</h1>;
   }
 }
 
