@@ -14,7 +14,7 @@ class FoodSearchContainer extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    let foodSearchQuery = document.getElementById("searchInput").value;
+    let foodSearchQuery = document.getElementById("foodSearchInput").value;
     const key = "381d57068dd3a75a7f6dc82f3b275f65";
     const appId = "2e1bc7f0";
 
@@ -50,7 +50,7 @@ class FoodSearchContainer extends Component {
 
         <form onSubmit={this.handleSubmit}>
           <input
-            id="searchInput"
+            id="foodSearchInput"
             placeholder="Example: For breakfast I had 2 large eggs, 3 pieces of bacon, and 1 medium avocado"
             type="text"
             required
