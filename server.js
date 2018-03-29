@@ -54,7 +54,9 @@ router
   })
   .post(function(req, res) {
     let user = new User();
-    user.name = "Ryan";
+    user.userName = req.body.userName;
+    user.name = req.body.name;
+    user.weight = req.body.weight;
     user.save(function(err) {
       if (err) res.send(err);
       res.json({ message: "User successfully added!" });

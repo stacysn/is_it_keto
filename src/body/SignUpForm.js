@@ -15,11 +15,28 @@ class SignUpForm extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
+  handleSignUp = event => {
+    event.preventDefault();
+    fetch("http://localhost:3001/api/users", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(this.state)
+    }).then(response => {
+      return response.json().then(json => {
+        if (response.ok) {
+          console.log("Sign up success!");
+        } else {
+          console.log("Sign up failed :(");
+        }
+      });
+    });
+  };
+
   render() {
     return (
       <div>
         <div className="sign-up-form">
-          <form onSubmit>
+          <form onSubmit={this.handleSignUp}>
             <h4>Sign Up</h4>
             <label htmlFor="userName">User Name: </label>
             <input
