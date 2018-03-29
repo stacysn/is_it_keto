@@ -4,7 +4,11 @@ var express = require("express");
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 
-const User = require('./models/user');
+//Models
+const User = require("./models/user");
+
+//Controllers
+const userController = require("./controllers/userController");
 
 //and create our instances
 var app = express();
@@ -46,22 +50,8 @@ router.get("/", function(req, res) {
 //user routes
 router
   .route("/users")
-  .get(function(req, res) {
-    User.find(function(err, users) {
-      if (err) res.send(err);
-      res.json(users);
-    });
-  })
-  .post(function(req, res) {
-    let user = new User();
-    user.userName = req.body.userName;
-    user.name = req.body.name;
-    user.weight = req.body.weight;
-    user.save(function(err) {
-      if (err) res.send(err);
-      res.json({ message: "User successfully added!" });
-    });
-  });
+  .get(userController.userGet)
+  .post(userController.userSignUp);
 
 //Use our router configuration when we call /api
 app.use("/api", router);
