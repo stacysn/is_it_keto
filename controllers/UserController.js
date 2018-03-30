@@ -10,6 +10,7 @@ exports.userGet = function(req, res) {
 exports.userSignUp = function(req, res) {
   let user = new User();
   user.userName = req.body.userName;
+  user.password = req.body.password;
   user.name = req.body.name;
   user.weight = req.body.weight;
   user.save(function(err) {
