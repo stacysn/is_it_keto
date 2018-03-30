@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { login } from "../redux/reducer";
 
+import "../assets/styles/Login.css";
+
 class LoginForm extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +19,7 @@ class LoginForm extends Component {
       return <p>Logged In</p>;
     } else {
       return (
-        <form name="loginForm" onSubmit={this.onSubmit}>
+        <form name="loginForm" id="loginForm"onSubmit={this.onSubmit}>
           <div className="form-group-collection">
             <div className="form-group">
               <label>UserName:</label>
