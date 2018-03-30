@@ -1,3 +1,19 @@
+$ff:  Helvetica, sans-serif;
+$bp: url('../images/avocado.jpeg');
+
 .sign-up-form {
+  height: 600px;
   text-align: center;
+  background: $bp;
+  background-size: cover;
+  font-family: $ff;
+
+}
+
+.form {
+  margin: 1em;
+}
+
+h4{
+  margin: 1em;
 }

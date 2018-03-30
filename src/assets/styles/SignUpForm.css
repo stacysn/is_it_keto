@@ -1,2 +1,12 @@
 .sign-up-form {
-  text-align: center; }
+  height: 600px;
+  text-align: center;
+  background: url("../images/avocado.jpeg");
+  background-size: cover;
+  font-family: Helvetica, sans-serif; }
+
+.form {
+  margin: 1em; }
+
+h4 {
+  margin: 1em; }
