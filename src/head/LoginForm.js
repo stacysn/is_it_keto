@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { login } from "../redux/reducer";
+import { login, logout } from "../redux/reducer";
 
 import "../assets/styles/Login.css";
 
@@ -9,6 +9,7 @@ class LoginForm extends Component {
     super(props);
     this.state = {};
     this.onSubmit = this.onSubmit.bind(this);
+    this.logout = this.logout.bind(this);
   }
 
   render() {
@@ -16,7 +17,7 @@ class LoginForm extends Component {
     let { isLoginPending, isLoginSuccess, loginError } = this.props;
 
     if (this.props.isLoginSuccess === true) {
-      return <p>Logged In</p>;
+      return <button type="submit" onClick={this.logout}>Logout</button>;
     } else {
       return (
         <form name="loginForm" id="loginForm"onSubmit={this.onSubmit}>
@@ -53,7 +54,7 @@ class LoginForm extends Component {
     }
   }
 
-  onSubmit(e) {
+  onSubmit = function(e){
     e.preventDefault();
     let { userName, password } = this.state;
     this.props.login(userName, password);
@@ -62,7 +63,14 @@ class LoginForm extends Component {
       password: ""
     });
   }
+
+  logout = function(e){
+    e.preventDefault();
+    this.props.logout(false);
+  }
 }
+
+
 
 const mapStateToProps = state => {
   return {
@@ -74,7 +82,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    login: (userName, password) => dispatch(login(userName, password))
+    login: (userName, password) => dispatch(login(userName, password)),
+    logout: () => dispatch(logout())
   };
 };
 

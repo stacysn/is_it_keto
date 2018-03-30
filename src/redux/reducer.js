@@ -19,6 +19,14 @@ export function login(userName, password) {
   };
 }
 
+export function logout() {
+    return dispatch => {
+      dispatch(setLoginPending(false));
+      dispatch(setLoginSuccess(false));
+      dispatch(setLoginError(null));
+    };
+}
+
 function setLoginPending(isLoginPending) {
   return {
     type: SET_LOGIN_PENDING,
