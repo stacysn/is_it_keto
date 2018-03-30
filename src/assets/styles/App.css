@@ -1,5 +1,15 @@
 .App {
-  text-align: center; }
+  text-align: center;
+  background-image: url("../images/lemon.jpeg");
+  background-size: cover;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 1600px; }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
