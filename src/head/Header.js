@@ -9,7 +9,7 @@ class Header extends Component {
     return (
       <div className="header">
         <h1> Keto Header </h1>
-        <LoginForm store={store}/>
+        <LoginForm />
       </div>
     );
   }
