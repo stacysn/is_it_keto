@@ -5,7 +5,6 @@ import { login } from "../redux/reducer";
 class LoginForm extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props.store.isLoginSuccess);
     this.state = {};
     this.onSubmit = this.onSubmit.bind(this);
   }

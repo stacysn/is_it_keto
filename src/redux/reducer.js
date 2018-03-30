@@ -42,11 +42,25 @@ function setLoginError(loginError) {
 
 function callLoginApi(userName, password, callback) {
   setTimeout(() => {
-    if (userName === "admin@example.com" && password === "admin") {
-      return callback(null);
-    } else {
-      return callback(new Error("Invalid username and password"));
-    }
+    fetch("http://localhost:3001/api/users", {
+      method: "GET",
+      headers: { "Content-Type": "application/json" }
+    }).then(response => {
+      return response.json().then(json => {
+        const userValues = Object.values(json);
+        for (let i = 0; userValues.length - 1; i++) {
+          if (
+            userValues[i].userName === userName &&
+            userValues[i].password === password
+          ) {
+            return callback(null);
+            break;
+          } else if (Object.values(json).length - 1 === i) {
+            return callback(new Error("Invalid username and password"));
+          }
+        }
+      });
+    });
   }, 1000);
 }
 
