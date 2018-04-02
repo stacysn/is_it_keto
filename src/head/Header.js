@@ -8,7 +8,7 @@ class Header extends Component {
       <div className = "header">
         <h1> Is It Keto? </h1>
           <nav className='nav-list'>
-            <a href='/profile'>Sign In</a>
+            <a href='/profile'>My Profile</a>
             <a href="/signup">Sign Up</a>
           </nav>
       </div>
