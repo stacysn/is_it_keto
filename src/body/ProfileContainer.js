@@ -10,9 +10,9 @@ class ProfileContainer extends Component {
 
   render() {
     return (
-      <div>
-        <h1 className="profile-container">My Profile</h1>
-        <FoodSearchContainer />
+      <div className="profile-container">
+        <h1>My Profile</h1>
+          <FoodSearchContainer />
       </div>
     )
   }
