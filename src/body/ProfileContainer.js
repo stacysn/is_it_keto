@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "../assets/styles/Profile.css";
+import FoodResults from "./food/FoodResults.js"
+import FoodSearchContainer from "./food/FoodSearchContainer.js"
 
 class ProfileContainer extends Component {
   constructor(props) {
@@ -7,7 +9,12 @@ class ProfileContainer extends Component {
   }
 
   render() {
-    return <h1 className="profile-container">Profile</h1>;
+    return (
+      <div>
+        <h1 className="profile-container">My Profile</h1>
+        <FoodSearchContainer />
+      </div>
+    )
   }
 }
 
