@@ -6,6 +6,7 @@ class SignUpForm extends Component {
     super(props);
     this.state = {
       userName: "",
+      password: "",
       name: "",
       weight: ""
     };
@@ -47,6 +48,18 @@ class SignUpForm extends Component {
               autoFocus
             />
             <br />
+              <label htmlFor="password">Password: </label>
+              <input
+                name="password"
+                type="password"
+                id="password"
+                placeholder="password"
+                value={this.state.password}
+                onChange={this.handleChange}
+                autoFocus
+              />
+              <br />
+            <label htmlFor="name">Name: </label>
             <input
               name="name"
               id="name"
