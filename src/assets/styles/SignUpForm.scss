@@ -1,19 +1,44 @@
 $ff:  Helvetica, sans-serif;
+$ff2: 'Crimson Text', serif;
+
 $bp: url('../images/avocado.jpeg');
+$anim: 5s fadein;
 
 .sign-up-form {
   height: 600px;
   text-align: center;
   background: $bp;
   background-size: cover;
-  font-family: $ff;
+  font-family: $ff2;
 
 }
 
 .form {
   margin: 1em;
+  background-color: pink;
 }
 
-h4{
-  margin: 1em;
+input {
+  padding: 10px;
+  border: 3px;
+  margin: 3px;
+}
+
+#name, #weight, #userName{
+  text-align: center;
+  width: 180px;
+  animation: $anim;
+}
+
+
+h4 {
+  font-size: 30px;
+  margin-top: 0px;
+  margin-bottom: 30px;
+  padding-top: 45px;
+}
+
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }

@@ -38,17 +38,15 @@ class SignUpForm extends Component {
         <div className="sign-up-form">
           <form onSubmit={this.handleSignUp}>
             <h4>Sign Up</h4>
-            <label htmlFor="userName">User Name: </label>
             <input
               name="userName"
               id="userName"
-              placeholder="userName"
+              placeholder="User Name"
               value={this.state.userName}
               onChange={this.handleChange}
               autoFocus
             />
             <br />
-            <label htmlFor="name">Name: </label>
             <input
               name="name"
               id="name"
@@ -58,7 +56,6 @@ class SignUpForm extends Component {
               autoFocus
             />
             <br />
-            <label htmlFor="weight">Weight: </label>
             <input
               name="weight"
               id="weight"

@@ -3,10 +3,30 @@
   text-align: center;
   background: url("../images/avocado.jpeg");
   background-size: cover;
-  font-family: Helvetica, sans-serif; }
+  font-family: "Crimson Text", serif; }
 
 .form {
-  margin: 1em; }
+  margin: 1em;
+  background-color: pink; }
+
+input {
+  padding: 10px;
+  border: 3px;
+  margin: 3px; }
+
+#name, #weight, #userName {
+  text-align: center;
+  width: 180px;
+  animation: 5s fadein; }
 
 h4 {
-  margin: 1em; }
+  font-size: 30px;
+  margin-top: 0px;
+  margin-bottom: 30px;
+  padding-top: 45px; }
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
