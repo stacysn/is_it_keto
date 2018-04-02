@@ -1,6 +1,5 @@
 $ff:  Helvetica, sans-serif;
 $ff2: 'Crimson Text', serif;
-
 $bp: url('../images/avocado.jpeg');
 $anim: 5s fadein;
 
@@ -8,9 +7,9 @@ $anim: 5s fadein;
   height: 600px;
   text-align: center;
   background: $bp;
+  height: 1600px;
   background-size: cover;
   font-family: $ff2;
-
 }
 
 input {
@@ -36,7 +35,6 @@ button {
   background-color: #7F9C96;
   animation: $anim;
 }
-
 
 h4 {
   font-size: 30px;
