@@ -11,6 +11,14 @@ $fs2: 20px;
   text-align: center;
 }
 
+.header a {
+  font-size: 40px;
+  text-decoration: none;
+  font-weight: bold;
+  color: $tc2;
+}
+
+
 .nav-list {
   text-align: right;
   padding-bottom: 5px;
