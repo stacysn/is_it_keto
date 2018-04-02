@@ -2,3 +2,25 @@
   border: black;
   border-style: solid;
   text-align: center; }
+
+.header a {
+  font-size: 40px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #136F63; }
+
+.nav-list {
+  text-align: right;
+  padding-bottom: 5px; }
+
+.nav-list a {
+  padding-right: 20px;
+  text-decoration: none;
+  color: #136F63;
+  font-family: "Crimson Text", serif;
+  font-size: 18px; }
+
+.nav-list a:hover {
+  color: #006989;
+  font-size: 20px;
+  font-weight: bold; }

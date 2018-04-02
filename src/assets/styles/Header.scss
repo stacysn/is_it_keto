@@ -1,5 +1,39 @@
+$tc: #006989;
+$tc2: #136F63;
+$ff: 'Crimson Text', serif;
+$fs: 18px;
+$fs2: 20px;
+
+
 .header {
   border: black;
   border-style: solid;
   text-align: center;
+}
+
+.header a {
+  font-size: 40px;
+  text-decoration: none;
+  font-weight: bold;
+  color: $tc2;
+}
+
+
+.nav-list {
+  text-align: right;
+  padding-bottom: 5px;
+}
+
+.nav-list a{
+  padding-right: 20px;
+  text-decoration: none;
+  color: $tc2;
+  font-family: $ff;
+  font-size: $fs;
+}
+
+.nav-list a:hover {
+  color: $tc;
+  font-size: $fs2;
+  font-weight: bold;
 }

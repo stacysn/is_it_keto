@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import FoodIndexItem from "./FoodIndexItem";
 import "../../assets/styles/FoodResults.css";
+import ProfileContainer from '../ProfileContainer.js'
 
 class FoodResults extends Component {
   constructor(props, context) {
@@ -43,6 +44,7 @@ class FoodResults extends Component {
                 totalCarbs={ totalCarbs }
               />
             )
+            
           })}
         </div>
       </div>

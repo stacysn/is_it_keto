@@ -1,2 +1,5 @@
 .profile-container {
-  text-align: center; }
+  text-align: center;
+  background: url("../images/almonds.jpeg");
+  background-size: cover;
+  height: 1600px; }

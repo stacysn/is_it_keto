@@ -1,3 +1,8 @@
+$bp: url('../images/almonds.jpeg');
+
 .profile-container {
   text-align: center;
+  background: $bp;
+  background-size: cover;
+  height: 1600px;
 }

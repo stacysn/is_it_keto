@@ -1,2 +1,40 @@
 .sign-up-form {
-  text-align: center; }
+  height: 600px;
+  text-align: center;
+  background: url("../images/avocado.jpeg");
+  height: 1600px;
+  background-size: cover;
+  font-family: "Crimson Text", serif; }
+
+input {
+  padding: 10px;
+  border: 3px;
+  margin: 3px; }
+
+#name, #weight, #userName {
+  text-align: center;
+  width: 180px;
+  animation: 5s fadein; }
+
+button {
+  font-family: "Crimson Text", serif;
+  margin-top: 20px;
+  border: solid 3px #288c1a;
+  border-radius: 20px 6px 20px 6px;
+  font-size: 20px;
+  color: #ffffff;
+  padding: 1px 17px;
+  background-color: #7F9C96;
+  animation: 5s fadein; }
+
+h4 {
+  font-size: 30px;
+  margin-top: 0px;
+  margin-bottom: 30px;
+  padding-top: 45px; }
+
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
