@@ -10,7 +10,7 @@ exports.entryGet = function(req, res) {
 
 exports.newEntry = function(req, res) {
   let entry = new FoodEntry();
-  entry.foodData = req.body.foodName;
+  entry.foodData = req.body;
   entry.save(function(err) {
     if (err) res.send(err);
     res.json({ message: "Entry successfully added!" });

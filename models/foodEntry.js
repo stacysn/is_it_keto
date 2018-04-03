@@ -2,7 +2,7 @@ const mongoose = require("mongoose"),
   Schema = mongoose.Schema;
 
 const FoodEntrySchema = new Schema({
-  foodData: String
+  foodData: Object
 })
 
 const FoodEntry = mongoose.model('FoodEntry', FoodEntrySchema);
