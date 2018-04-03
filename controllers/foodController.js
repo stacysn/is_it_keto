@@ -1,4 +1,4 @@
-const User = require("../models/FoodEntry.js");
+const FoodEntry = require("../models/FoodEntry.js");
 
 //for testing only
 exports.entryGet = function(req, res) {
@@ -10,7 +10,7 @@ exports.entryGet = function(req, res) {
 
 exports.newEntry = function(req, res) {
   let entry = new FoodEntry();
-  entry.foodData = req.body;
+  entry.foodData = req.body.foodName;
   entry.save(function(err) {
     if (err) res.send(err);
     res.json({ message: "Entry successfully added!" });
