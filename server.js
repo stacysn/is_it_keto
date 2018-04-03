@@ -5,6 +5,7 @@ var bodyParser = require("body-parser");
 
 //Models
 const User = require("./models/user");
+const FoodEntry = require("./models/foodEntry");
 
 //Controllers
 const userController = require("./controllers/userController");

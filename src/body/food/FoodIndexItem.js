@@ -6,7 +6,9 @@ import "../../assets/styles/FoodIndexItem.css";
 class FoodIndexItem extends Component {
   constructor(props) {
     super(props);
-    this.state = {
+  }
+  handleNewEntry = event => {
+    const entry = {
       dietaryFiber: this.props.dietaryFiber,
       foodName: this.props.foodName,
       netCarbs: this.props.netCarbs,
@@ -14,14 +16,12 @@ class FoodIndexItem extends Component {
       servingSizeGrams: this.props.servingSizeGrams,
       totalCarbs: this.props.totalCarbs,
       userId: this.props.userId
-    };
-  }
-  handleNewEntry = event => {
+    }
     event.preventDefault();
     fetch("http://localhost:3001/api/foodEntry", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(this.state)
+      body: JSON.stringify(entry)
     }).then(response => {
       return response.json().then(json => {
         if (response.ok) {
@@ -34,21 +34,29 @@ class FoodIndexItem extends Component {
   };
 
   render() {
-    const isKeto = this.props.isKeto;
+    const {
+     dietaryFiber,
+     foodName,
+     isKeto,
+     netCarbs,
+     servingSize,
+     servingSizeGrams,
+     totalCarbs
+   } = this.props;
     let { isLoginSuccess, userId } = this.props;
     if (this.props.isLoginSuccess) {
       return (
         <div>
           <div className="food-idx-item">
             <b>
-              {this.state.foodName} &mdash; {isKeto}
+              {foodName} &mdash; {isKeto}
             </b>
             <p>
-              Serving size: {this.state.servingSize} ({this.state.servingSizeGrams} g)
+              Serving size: {servingSize} ({servingSizeGrams} g)
             </p>
-            <p>{this.state.totalCarbs} g Total Carbs</p>
-            <p>&mdash; {this.state.dietaryFiber} g Dietary Fiber</p>
-            <p>= {this.state.netCarbs} g Net Carbs</p>
+            <p>{totalCarbs} g Total Carbs</p>
+            <p>&mdash; {dietaryFiber} g Dietary Fiber</p>
+            <p>= {netCarbs} g Net Carbs</p>
           </div>
           <button type="submit" onClick={this.handleNewEntry}>
             Add to Profile
@@ -59,14 +67,14 @@ class FoodIndexItem extends Component {
       return (
         <div className="food-idx-item">
           <b>
-            {this.state.foodName} &mdash; {isKeto}
+            {foodName} &mdash; {isKeto}
           </b>
           <p>
-            Serving size: {this.state.servingSize} ({this.state.servingSizeGrams} g)
+            Serving size: {servingSize} ({servingSizeGrams} g)
           </p>
-          <p>{this.state.totalCarbs} g Total Carbs</p>
-          <p>&mdash; {this.state.dietaryFiber} g Dietary Fiber</p>
-          <p>= {this.state.netCarbs} g Net Carbs</p>
+          <p>{totalCarbs} g Total Carbs</p>
+          <p>&mdash; {dietaryFiber} g Dietary Fiber</p>
+          <p>= {netCarbs} g Net Carbs</p>
         </div>
       );
     }
