@@ -13,11 +13,6 @@ exports.newEntry = function(req, res) {
   let entry = new FoodEntry();
   entry.foodData = req.body;
 
-  const userId = req.body.userId;
-  User.findOne({_id: userId}, function(err, user){
-    entry.foodEater = user;
-  })
-
   entry.save(function(err) {
     if (err) res.send(err);
     res.json({ message: "Entry successfully added!" });
