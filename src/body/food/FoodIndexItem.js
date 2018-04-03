@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
 import "../../assets/styles/FoodIndexItem.css";
 
 class FoodIndexItem extends Component {
@@ -15,7 +17,7 @@ class FoodIndexItem extends Component {
   }
   handleNewEntry = event => {
     event.preventDefault();
-    console.log(this.state);
+    console.log(this.props.userId)
     fetch("http://localhost:3001/api/foodEntry", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -33,7 +35,8 @@ class FoodIndexItem extends Component {
 
   render() {
     const isKeto = this.props.isKeto;
-    if (true) {
+    let { isLoginSuccess, userId } = this.props;
+    if (this.props.isLoginSuccess) {
       return (
         <div>
           <div className="food-idx-item">
@@ -70,4 +73,11 @@ class FoodIndexItem extends Component {
   }
 }
 
-export default FoodIndexItem;
+const mapStateToProps = state => {
+  return {
+    isLoginSuccess: state.isLoginSuccess,
+    userId: state.userId
+  };
+};
+
+export default connect(mapStateToProps)(FoodIndexItem);
