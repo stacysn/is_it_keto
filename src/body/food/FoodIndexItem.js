@@ -9,14 +9,16 @@ class FoodIndexItem extends Component {
   }
   handleNewEntry = event => {
     const entry = {
-      dietaryFiber: this.props.dietaryFiber,
-      foodName: this.props.foodName,
-      netCarbs: this.props.netCarbs,
-      servingSize: this.props.servingSize,
-      servingSizeGrams: this.props.servingSizeGrams,
-      totalCarbs: this.props.totalCarbs,
-      userId: this.props.userId
-    }
+      foodData: {
+        dietaryFiber: this.props.dietaryFiber,
+        foodName: this.props.foodName,
+        netCarbs: this.props.netCarbs,
+        servingSize: this.props.servingSize,
+        servingSizeGrams: this.props.servingSizeGrams,
+        totalCarbs: this.props.totalCarbs
+      },
+      foodEater: this.props.userId
+    };
     event.preventDefault();
     fetch("http://localhost:3001/api/foodEntry", {
       method: "POST",
@@ -35,14 +37,14 @@ class FoodIndexItem extends Component {
 
   render() {
     const {
-     dietaryFiber,
-     foodName,
-     isKeto,
-     netCarbs,
-     servingSize,
-     servingSizeGrams,
-     totalCarbs
-   } = this.props;
+      dietaryFiber,
+      foodName,
+      isKeto,
+      netCarbs,
+      servingSize,
+      servingSizeGrams,
+      totalCarbs
+    } = this.props;
     let { isLoginSuccess, userId } = this.props;
     if (this.props.isLoginSuccess) {
       return (

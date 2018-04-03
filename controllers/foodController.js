@@ -11,7 +11,8 @@ exports.entryGet = function(req, res) {
 
 exports.newEntry = function(req, res) {
   let entry = new FoodEntry();
-  entry.foodData = req.body;
+  entry.foodData = req.body.foodData;
+  entry.foodEater = req.body.foodEater;
 
   entry.save(function(err) {
     if (err) res.send(err);
