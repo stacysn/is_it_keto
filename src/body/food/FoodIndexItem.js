@@ -12,16 +12,35 @@ class FoodIndexItem extends Component {
       servingSizeGrams,
       totalCarbs
     } = this.props;
-
-    return(
-      <div className="food-idx-item">
-        <b>{foodName} &mdash; {isKeto}</b>
-        <p>Serving size: {servingSize} ({servingSizeGrams} g)</p>
-        <p>{totalCarbs} g Total Carbs</p>
-        <p>&mdash; {dietaryFiber} g Dietary Fiber</p>
-        <p>= {netCarbs} g Net Carbs</p>
-      </div>
-    )
+    if (this.props.isLoginSuccess === true) {
+      return (
+        <div className="food-idx-item">
+          <b>
+            {foodName} &mdash; {isKeto}
+          </b>
+          <p>
+            Serving size: {servingSize} ({servingSizeGrams} g)
+          </p>
+          <p>{totalCarbs} g Total Carbs</p>
+          <p>&mdash; {dietaryFiber} g Dietary Fiber</p>
+          <p>= {netCarbs} g Net Carbs</p>
+        </div>
+      );
+    } else {
+      return (
+        <div className="food-idx-item">
+          <b>
+            {foodName} &mdash; {isKeto}
+          </b>
+          <p>
+            Serving size: {servingSize} ({servingSizeGrams} g)
+          </p>
+          <p>{totalCarbs} g Total Carbs</p>
+          <p>&mdash; {dietaryFiber} g Dietary Fiber</p>
+          <p>= {netCarbs} g Net Carbs</p>
+        </div>
+      );
+    }
   }
 }
 
