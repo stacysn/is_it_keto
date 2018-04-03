@@ -50,6 +50,11 @@ router
   .get(userController.userGet)
   .post(userController.userSignUp);
 
+router
+  .route("/foodEntry")
+  .get(foodController.entryGet)
+  .post(foodController.newEntry);
+
 app.use("/api", router);
 app.listen(port, function() {
   console.log("api running on port " + port);
