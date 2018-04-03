@@ -8,6 +8,7 @@ const User = require("./models/user");
 
 //Controllers
 const userController = require("./controllers/userController");
+const foodController = require("./controllers/foodController");
 
 var app = express();
 var router = express.Router();
