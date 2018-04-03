@@ -5,9 +5,11 @@ var bodyParser = require("body-parser");
 
 //Models
 const User = require("./models/user");
+const FoodEntry = require("./models/foodEntry");
 
 //Controllers
 const userController = require("./controllers/userController");
+const foodController = require("./controllers/foodController");
 
 var app = express();
 var router = express.Router();
@@ -49,6 +51,11 @@ router
   .route("/users")
   .get(userController.userGet)
   .post(userController.userSignUp);
+
+router
+  .route("/foodEntry")
+  .get(foodController.entryGet)
+  .post(foodController.newEntry);
 
 app.use("/api", router);
 app.listen(port, function() {

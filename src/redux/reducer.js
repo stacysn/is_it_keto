@@ -1,6 +1,7 @@
 const SET_LOGIN_PENDING = "SET_LOGIN_PENDING";
 const SET_LOGIN_SUCCESS = "SET_LOGIN_SUCCESS";
 const SET_LOGIN_ERROR = "SET_LOGIN_ERROR";
+const SET_USER_ID = "SET_USER_ID";
 
 export function login(userName, password) {
   return dispatch => {
@@ -8,23 +9,25 @@ export function login(userName, password) {
     dispatch(setLoginSuccess(false));
     dispatch(setLoginError(null));
 
-    callLoginApi(userName, password, error => {
+    callLoginApi(userName, password, callback => {
       dispatch(setLoginPending(false));
-      if (!error) {
+      if (callback !== "Invalid username and password") {
+        dispatch(setUserId(callback));
         dispatch(setLoginSuccess(true));
       } else {
-        dispatch(setLoginError(error));
+        dispatch(setLoginError(new Error(callback)));
       }
     });
   };
 }
 
 export function logout() {
-    return dispatch => {
-      dispatch(setLoginPending(false));
-      dispatch(setLoginSuccess(false));
-      dispatch(setLoginError(null));
-    };
+  return dispatch => {
+    dispatch(setLoginPending(false));
+    dispatch(setLoginSuccess(false));
+    dispatch(setLoginError(null));
+    dispatch(setUserId(null));
+  };
 }
 
 function setLoginPending(isLoginPending) {
@@ -48,6 +51,13 @@ function setLoginError(loginError) {
   };
 }
 
+function setUserId(id) {
+  return {
+    type: SET_USER_ID,
+    id
+  };
+}
+
 function callLoginApi(userName, password, callback) {
   setTimeout(() => {
     fetch("http://localhost:3001/api/users", {
@@ -56,17 +66,15 @@ function callLoginApi(userName, password, callback) {
     }).then(response => {
       return response.json().then(json => {
         const userValues = Object.values(json);
-        for (let i = 0; userValues.length - 1; i++) {
+        for (let i = 0; (userValues.length - 1)>=i; i++) {
           if (
             userValues[i].userName === userName &&
             userValues[i].password === password
           ) {
-            return callback(null);
-            break;
-          } else if (Object.values(json).length - 1 === i) {
-            return callback(new Error("Invalid username and password"));
+            return callback(userValues[i]._id);
           }
         }
+        return callback("Invalid username and password");
       });
     });
   }, 1000);
@@ -76,7 +84,8 @@ export default function reducer(
   state = {
     isLoginSuccess: false,
     isLoginPending: false,
-    loginError: null
+    loginError: null,
+    userId: null
   },
   action
 ) {
@@ -94,6 +103,11 @@ export default function reducer(
     case SET_LOGIN_ERROR:
       return Object.assign({}, state, {
         loginError: action.loginError
+      });
+
+    case SET_USER_ID:
+      return Object.assign({}, state, {
+        userId: action.id
       });
 
     default:

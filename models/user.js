@@ -9,7 +9,7 @@ const UserSchema = new Schema({
   // foodEntry: {
   //   type: Schema.Types.ObjectId,
   //   ref: "FoodEntry"
-  // },
+  // }
   // exerciseEntry: {
   //   type: Schema.Types.ObjectId,
   //   ref: "ExerciseEntry"
