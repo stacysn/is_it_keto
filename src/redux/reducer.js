@@ -26,6 +26,7 @@ export function logout() {
     dispatch(setLoginPending(false));
     dispatch(setLoginSuccess(false));
     dispatch(setLoginError(null));
+    dispatch(setUserId(null));
   };
 }
 
@@ -65,17 +66,15 @@ function callLoginApi(userName, password, callback) {
     }).then(response => {
       return response.json().then(json => {
         const userValues = Object.values(json);
-        for (let i = 0; userValues.length - 1; i++) {
+        for (let i = 0; (userValues.length - 1)>=i; i++) {
           if (
             userValues[i].userName === userName &&
             userValues[i].password === password
           ) {
             return callback(userValues[i]._id);
-            break;
-          } else if (Object.values(json).length - 1 === i) {
-            return callback("Invalid username and password");
           }
         }
+        return callback("Invalid username and password");
       });
     });
   }, 1000);

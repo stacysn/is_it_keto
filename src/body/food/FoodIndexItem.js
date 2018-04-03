@@ -12,12 +12,12 @@ class FoodIndexItem extends Component {
       netCarbs: this.props.netCarbs,
       servingSize: this.props.servingSize,
       servingSizeGrams: this.props.servingSizeGrams,
-      totalCarbs: this.props.totalCarbs
+      totalCarbs: this.props.totalCarbs,
+      userId: this.props.userId
     };
   }
   handleNewEntry = event => {
     event.preventDefault();
-    console.log(this.props.userId)
     fetch("http://localhost:3001/api/foodEntry", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
