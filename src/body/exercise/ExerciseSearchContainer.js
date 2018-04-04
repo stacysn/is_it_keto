@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../../assets/styles/ExerciseSearchContainer.css";
+import keys from "../../config/keys";
 import ExerciseResults from "./ExerciseResults";
 
 class ExerciseSearchContainer extends Component {
@@ -16,8 +17,8 @@ class ExerciseSearchContainer extends Component {
 
     //TODO: add more parameters to body: gender, height_cm, weight_kg, age
     let exerciseQuery = document.getElementById("exerciseQueryInput").value;
-    const key = "381d57068dd3a75a7f6dc82f3b275f65";
-    const appId = "2e1bc7f0";
+    const key = keys.nutritionixKey;
+    const appId = keys.nutritionixAppId;
 
     fetch(`https://trackapi.nutritionix.com/v2/natural/exercise`, {
       method: "post",

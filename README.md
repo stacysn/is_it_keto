@@ -1,18 +1,20 @@
 <h1>Is It Keto?</h1>
-<p> An app to keep yourself accountable</p>
+<p> An app to keep yourself accountable.</p>
 <h2>Planning:</h2>
 <ul>
   <li><a href="https://imgur.com/a/V9iGE">Wireframes</a></li>
-  <li><a href="https://trello.com/b/FJ7WQjop/sprints">Trello Board</a></li>
+  <li><a href="https://trello.com/b/FJ7WQjop/sprints">Trello</a></li>
 </ul>
 <h2>Technologies:</h2>
 <ul>
 <li><a href="https://reactjs.org/">React.js</a></li>
+<li><a href="https://redux.js.org/">Redux</a></li>
 <li><a href="https://sass-lang.com/">Sass</a></li>
 <li><a href="https://developer.nutritionix.com/">nutritionix API</a></li>
 </ul>
 <h2>Contributing</h2>
 <ol>
+<li>Note: This app will not work unless you receive the API key from the devs or add your own</li>
 <li>Fork the repository from the Github page.</li><br>
 <li>Clone a copy to your local machine with $ git clone git@github.com:YOUR-GITHUB-USER-NAME/is_it_keto.git</li><br>
 <li>Run 'npm install' to install all the packages</li><br>

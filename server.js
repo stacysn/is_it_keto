@@ -1,7 +1,8 @@
 "use strict";
-var express = require("express");
-var mongoose = require("mongoose");
-var bodyParser = require("body-parser");
+const express = require("express");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const bcrypt = require("bcrypt");
 
 //Models
 const User = require("./models/user");
@@ -11,8 +12,8 @@ const FoodEntry = require("./models/foodEntry");
 const userController = require("./controllers/userController");
 const foodController = require("./controllers/foodController");
 
-var app = express();
-var router = express.Router();
+const app = express();
+const router = express.Router();
 
 //mLab
 const mongoDB = "mongodb://keto:bacon5@ds215019.mlab.com:15019/is-it-keto";
@@ -51,6 +52,10 @@ router
   .route("/users")
   .get(userController.userGet)
   .post(userController.userSignUp);
+
+router
+.route("/userLogin")
+.post(userController.userLogin);
 
 router
   .route("/foodEntry")
