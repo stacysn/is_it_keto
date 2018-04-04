@@ -23,10 +23,13 @@ exports.userSignUp = function(req, res) {
 
 exports.userLogin = function(req, res) {
   User.findOne({ userName: req.body.userName }, function(err, user) {
-    if (bcrypt.compareSync(req.body.password, user.password)){
+    let loginFail = { message: "Login Fail" };
+    if (user === null) {
+      res.send(loginFail);
+    } else if (bcrypt.compareSync(req.body.password, user.password)) {
       res.json(user);
     } else {
-      res.send({ message: "Login Fail" });
+      res.send(loginFail);
     }
   });
 };

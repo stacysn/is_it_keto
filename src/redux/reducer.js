@@ -11,7 +11,7 @@ export function login(userName, password) {
 
     callLoginApi(userName, password, callback => {
       dispatch(setLoginPending(false));
-      if (callback !== "Invalid username or password") {
+      if (callback !== "Invalid Username or Password") {
         dispatch(setUserId(callback));
         dispatch(setLoginSuccess(true));
       } else {
