@@ -1,5 +1,5 @@
 <h1>Is It Keto?</h1>
-<p> An app to keep yourself accountable</p>
+<p> An app to keep yourself accountable.</p>
 <h2>Planning:</h2>
 <ul>
   <li><a href="https://imgur.com/a/V9iGE">Wireframes</a></li>
