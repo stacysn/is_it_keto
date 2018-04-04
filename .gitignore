@@ -2,7 +2,7 @@
 
 # dependencies
 /node_modules
-src/keys.js
+keys.js
 
 # testing
 /coverage
