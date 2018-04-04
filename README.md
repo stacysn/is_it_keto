@@ -3,11 +3,12 @@
 <h2>Planning:</h2>
 <ul>
   <li><a href="https://imgur.com/a/V9iGE">Wireframes</a></li>
-  <li><a href="https://trello.com/b/FJ7WQjop/sprints">Trello Board</a></li>
+  <li><a href="https://trello.com/b/FJ7WQjop/sprints">Trello</a></li>
 </ul>
 <h2>Technologies:</h2>
 <ul>
 <li><a href="https://reactjs.org/">React.js</a></li>
+<li><a href="https://redux.js.org/">Redux</a></li>
 <li><a href="https://sass-lang.com/">Sass</a></li>
 <li><a href="https://developer.nutritionix.com/">nutritionix API</a></li>
 </ul>
