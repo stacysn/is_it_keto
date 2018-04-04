@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../../assets/styles/FoodSearchContainer.css";
+import keys from "../../config/keys";
 import FoodResults from "./FoodResults";
 
 class FoodSearchContainer extends Component {
@@ -15,14 +16,14 @@ class FoodSearchContainer extends Component {
     event.preventDefault();
 
     let foodSearchQuery = document.getElementById("foodSearchInput").value;
-    const key = "381d57068dd3a75a7f6dc82f3b275f65";
-    const appId = "2e1bc7f0";
+    const nutritionixKey = keys.nutritionixKey;
+    const nutritionixAppId = keys.nutritionixAppId;
 
     fetch(`https://trackapi.nutritionix.com/v2/natural/nutrients`, {
       method: "post",
       headers: {
-        "x-app-key": `${key}`,
-        "x-app-id": `${appId}`,
+        "x-app-key": `${nutritionixKey}`,
+        "x-app-id": `${nutritionixAppId}`,
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
