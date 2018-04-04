@@ -11,7 +11,7 @@ export function login(userName, password) {
 
     callLoginApi(userName, password, callback => {
       dispatch(setLoginPending(false));
-      if (callback !== "Invalid username and password") {
+      if (callback !== "Invalid username or password") {
         dispatch(setUserId(callback));
         dispatch(setLoginSuccess(true));
       } else {
@@ -59,22 +59,22 @@ function setUserId(id) {
 }
 
 function callLoginApi(userName, password, callback) {
+  let request = {
+    userName: userName,
+    password: password
+  };
   setTimeout(() => {
-    fetch("http://localhost:3001/api/users", {
-      method: "GET",
-      headers: { "Content-Type": "application/json" }
+    fetch("http://localhost:3001/api/userLogin", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(request)
     }).then(response => {
       return response.json().then(json => {
-        const userValues = Object.values(json);
-        for (let i = 0; (userValues.length - 1)>=i; i++) {
-          if (
-            userValues[i].userName === userName &&
-            userValues[i].password === password
-          ) {
-            return callback(userValues[i]._id);
-          }
+        if (json.message !== "Login Fail") {
+          callback(json._id);
+        } else {
+          callback("Invalid Username or Password");
         }
-        return callback("Invalid username and password");
       });
     });
   }, 1000);
