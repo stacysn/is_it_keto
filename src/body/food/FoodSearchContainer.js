@@ -16,14 +16,14 @@ class FoodSearchContainer extends Component {
     event.preventDefault();
 
     let foodSearchQuery = document.getElementById("foodSearchInput").value;
-    const nutritionixKey = keys.nutritionixKey;
-    const nutritionixAppId = keys.nutritionixAppId;
+    const key = keys.nutritionixKey;
+    const appId = keys.nutritionixAppId;
 
     fetch(`https://trackapi.nutritionix.com/v2/natural/nutrients`, {
       method: "post",
       headers: {
-        "x-app-key": `${nutritionixKey}`,
-        "x-app-id": `${nutritionixAppId}`,
+        "x-app-key": `${key}`,
+        "x-app-id": `${appId}`,
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
