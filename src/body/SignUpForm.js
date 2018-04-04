@@ -8,7 +8,8 @@ class SignUpForm extends Component {
       userName: "",
       password: "",
       name: "",
-      weight: ""
+      weight: "",
+      height: ""
     };
   }
 
@@ -69,6 +70,7 @@ class SignUpForm extends Component {
               autoFocus
             />
             <br />
+            <label htmlFor="name">Weight: </label>
             <input
               name="weight"
               id="weight"
@@ -78,6 +80,16 @@ class SignUpForm extends Component {
               autoFocus
             />
             <br />
+            <label htmlFor="name">Height: </label>
+              <input
+                name="height"
+                id="height"
+                placeholder="Height"
+                value={this.state.height}
+                onChange={this.handleChange}
+                autoFocus
+              />
+              <br />
             <button type="submit">Sign Up</button>
           </form>
         </div>

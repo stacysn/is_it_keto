@@ -6,6 +6,7 @@ const UserSchema = new Schema({
   password: String,
   name: String,
   weight: Number,
+  height: Number,
   memberSince: Number
   // foodEntry: {
   //   type: Schema.Types.ObjectId,
