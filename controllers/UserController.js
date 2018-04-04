@@ -13,6 +13,7 @@ exports.userSignUp = function(req, res) {
   user.password = req.body.password;
   user.name = req.body.name;
   user.weight = req.body.weight;
+  user.memberSince = Date.now();
   user.save(function(err) {
     if (err) res.send(err);
     res.json({ message: "User successfully added!" });
