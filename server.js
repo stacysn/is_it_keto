@@ -58,6 +58,10 @@ router
 .post(userController.userLogin);
 
 router
+.route("/users/signupcheck")
+.post(userController.signupCheck);
+
+router
   .route("/foodEntry")
   .get(foodController.entryGet)
   .post(foodController.newEntry);

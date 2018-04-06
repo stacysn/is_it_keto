@@ -42,3 +42,14 @@ exports.userLogin = function(req, res) {
     }
   });
 };
+
+exports.signupCheck = function(req, res) {
+  User.findOne({ userName: req.body.userName }, function(err, user) {
+    if(user === null){
+      res.send({userExists: false})
+    }
+    else{
+      res.send({userExists: true})
+    }
+  });
+}
