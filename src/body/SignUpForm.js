@@ -30,6 +30,12 @@ class SignUpForm extends Component {
       return response.json().then(json => {
         if (response.ok) {
           console.log("Sign up success!");
+          let { userName, password } = this.state;
+          this.props.login(userName, password);
+          this.setState({
+            userName: "",
+            password: ""
+          });
         } else {
           console.log("Sign up failed :(");
         }
@@ -38,6 +44,8 @@ class SignUpForm extends Component {
   };
 
   render() {
+    let { userName, password } = this.state;
+    let { isLoginPending, isLoginSuccess, loginError } = this.props;
     return (
       <div>
         <div className="sign-up-form">
@@ -111,7 +119,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    login: (userName, password) => dispatch(login(userName, password)),
+    login: (userName, password) => dispatch(login(userName, password))
   };
 };
 
