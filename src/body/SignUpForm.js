@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { login } from "../redux/reducer";
+
 import "../assets/styles/SignUpForm.css";
 
 class SignUpForm extends Component {
@@ -27,6 +30,12 @@ class SignUpForm extends Component {
       return response.json().then(json => {
         if (response.ok) {
           console.log("Sign up success!");
+          let { userName, password } = this.state;
+          this.props.login(userName, password);
+          this.setState({
+            userName: "",
+            password: ""
+          });
         } else {
           console.log("Sign up failed :(");
         }
@@ -35,6 +44,8 @@ class SignUpForm extends Component {
   };
 
   render() {
+    let { userName, password } = this.state;
+    let { isLoginPending, isLoginSuccess, loginError } = this.props;
     return (
       <div>
         <div className="sign-up-form">
@@ -49,17 +60,17 @@ class SignUpForm extends Component {
               autoFocus
             />
             <br />
-              <label htmlFor="password">Password: </label>
-              <input
-                name="password"
-                type="password"
-                id="password"
-                placeholder="password"
-                value={this.state.password}
-                onChange={this.handleChange}
-                autoFocus
-              />
-              <br />
+            <label htmlFor="password">Password: </label>
+            <input
+              name="password"
+              type="password"
+              id="password"
+              placeholder="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+              autoFocus
+            />
+            <br />
             <label htmlFor="name">Name: </label>
             <input
               name="name"
@@ -81,15 +92,15 @@ class SignUpForm extends Component {
             />
             <br />
             <label htmlFor="name">Height: </label>
-              <input
-                name="height"
-                id="height"
-                placeholder="Height"
-                value={this.state.height}
-                onChange={this.handleChange}
-                autoFocus
-              />
-              <br />
+            <input
+              name="height"
+              id="height"
+              placeholder="Height"
+              value={this.state.height}
+              onChange={this.handleChange}
+              autoFocus
+            />
+            <br />
             <button type="submit">Sign Up</button>
           </form>
         </div>
@@ -98,4 +109,18 @@ class SignUpForm extends Component {
   }
 }
 
-export default SignUpForm;
+const mapStateToProps = state => {
+  return {
+    isLoginPending: state.isLoginPending,
+    isLoginSuccess: state.isLoginSuccess,
+    loginError: state.loginError
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    login: (userName, password) => dispatch(login(userName, password))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpForm);

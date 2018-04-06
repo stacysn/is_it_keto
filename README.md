@@ -14,7 +14,7 @@
 </ul>
 <h2>Contributing</h2>
 <ol>
-<li>Note: This app will not work unless you receive the API key from the devs or add your own</li>
+<li>Note: This app will not work unless you receive the API key from the devs or add your own</li><br>
 <li>Fork the repository from the Github page.</li><br>
 <li>Clone a copy to your local machine with $ git clone git@github.com:YOUR-GITHUB-USER-NAME/is_it_keto.git</li><br>
 <li>Run 'npm install' to install all the packages</li><br>
