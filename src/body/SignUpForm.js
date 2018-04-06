@@ -22,13 +22,14 @@ class SignUpForm extends Component {
 
   handleSignUp = event => {
     event.preventDefault();
+
     fetch("http://localhost:3001/api/users", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(this.state)
     }).then(response => {
       return response.json().then(json => {
-        if (response.ok) {
+        if (!json.userExists) {
           console.log("Sign up success!");
           let { userName, password } = this.state;
           this.props.login(userName, password);
@@ -37,7 +38,7 @@ class SignUpForm extends Component {
             password: ""
           });
         } else {
-          console.log("Sign up failed :(");
+          alert("Username already taken");
         }
       });
     });
