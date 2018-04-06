@@ -21,7 +21,6 @@ class LoginForm extends Component {
         <div>
           <nav className="nav-list">
             <a href="/profile">My Profile</a>
-            <a href="/signup">Sign Up</a>
             <a href="/home" type="submit" onClick={this.logout}>Logout</a>
           </nav>
         </div>
