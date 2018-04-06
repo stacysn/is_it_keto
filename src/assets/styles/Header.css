@@ -1,7 +1,8 @@
 .header {
   border: black;
   border-style: solid;
-  text-align: center; }
+  text-align: center;
+  height: 100px; }
 
 .header a {
   font-size: 40px;
