@@ -7,7 +7,8 @@ const UserSchema = new Schema({
   name: String,
   weight: Number,
   height: Number,
-  memberSince: Number
+  memberSince: Number,
+  optimalCalorieIntake: Number
   // foodEntry: {
   //   type: Schema.Types.ObjectId,
   //   ref: "FoodEntry"
