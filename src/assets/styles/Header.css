@@ -8,7 +8,7 @@
   font-size: 40px;
   text-decoration: none;
   font-weight: bold;
-  color: #136F63; }
+  color: #136f63; }
 
 .nav-list {
   text-align: right;
@@ -17,7 +17,7 @@
 .nav-list a {
   padding-right: 20px;
   text-decoration: none;
-  color: #136F63;
+  color: #136f63;
   font-family: "Crimson Text", serif;
   font-size: 18px; }
 
@@ -25,3 +25,41 @@
   color: #006989;
   font-size: 20px;
   font-weight: bold; }
+
+.signup-nav a {
+  position: relative;
+  z-index: 100; }
+
+.form-group-collection label {
+  color: white;
+  padding-right: 5px; }
+
+#loginForm {
+  position: relative;
+  bottom: 70px; }
+
+.login-form-username {
+  position: relative;
+  left: 4%;
+  top: 50px;
+  z-index: 101;
+  width: 25%; }
+
+.login-form-password {
+  position: relative;
+  left: 19%;
+  top: 10px;
+  z-index: 100;
+  width: 25%; }
+
+.login-button {
+  position: relative;
+  bottom: 30px;
+  right: 8%;
+  z-index: 100; }
+
+.message {
+  position: relative;
+  bottom: 60px;
+  left: 2%;
+  color: white; }
