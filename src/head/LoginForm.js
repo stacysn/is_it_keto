@@ -17,7 +17,14 @@ class LoginForm extends Component {
     let { isLoginPending, isLoginSuccess, loginError } = this.props;
 
     if (this.props.isLoginSuccess === true) {
-      return <button type="submit" onClick={this.logout}>Logout</button>;
+      return (
+        <div>
+          <nav className="nav-list">
+            <a href="/profile">My Profile</a>
+            <a href="/home" type="submit" onClick={this.logout}>Logout</a>
+          </nav>
+        </div>
+      )
     } else {
       return (
         <form name="loginForm" id="loginForm"onSubmit={this.onSubmit}>
