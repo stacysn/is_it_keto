@@ -1,9 +1,8 @@
 $tc: #006989;
-$tc2: #136F63;
-$ff: 'Crimson Text', serif;
+$tc2: #136f63;
+$ff: "Crimson Text", serif;
 $fs: 18px;
 $fs2: 20px;
-
 
 .header {
   border: black;
@@ -19,13 +18,12 @@ $fs2: 20px;
   color: $tc2;
 }
 
-
 .nav-list {
   text-align: right;
   padding-bottom: 5px;
 }
 
-.nav-list a{
+.nav-list a {
   padding-right: 20px;
   text-decoration: none;
   color: $tc2;
@@ -37,4 +35,49 @@ $fs2: 20px;
   color: $tc;
   font-size: $fs2;
   font-weight: bold;
+}
+
+.signup-nav a {
+  position: relative;
+  z-index: 100;
+}
+
+.form-group-collection label {
+  color: white;
+  padding-right: 5px;
+}
+
+#loginForm {
+  position: relative;
+  bottom: 70px;
+}
+
+.login-form-username {
+  position: relative;
+  left: 4%;
+  top: 50px;
+  z-index: 101;
+  width: 25%;
+}
+
+.login-form-password {
+  position: relative;
+  left: 19%;
+  top: 10px;
+  z-index: 100;
+  width: 25%;
+}
+
+.login-button {
+  position: relative;
+  bottom: 30px;
+  right: 8%;
+  z-index: 100;
+}
+
+.message {
+  position: relative;
+  bottom: 60px;
+  left: 2%;
+  color: white;
 }
