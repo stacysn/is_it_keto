@@ -25,6 +25,8 @@ exports.userSignUp = function(req, res) {
         user.height = req.body.height;
       }
 
+      user.optimalCalorieIntake = req.body.weight * 13;
+
       user.memberSince = Date.now();
       user.save(function(err) {
         if (err) res.send(err);
