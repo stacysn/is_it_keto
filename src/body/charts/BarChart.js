@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../../assets/styles/App.css";
+import "../../assets/styles/BarChart.css";
 import { scaleLinear } from "d3-scale";
 import { max } from "d3-array";
 import { select } from "d3-selection";
