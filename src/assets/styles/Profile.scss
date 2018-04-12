@@ -1,8 +1,13 @@
-$bp: url('../images/almonds.jpeg');
+$bp: url("../images/almonds.jpeg");
 
 .profile-container {
   text-align: center;
   background: $bp;
   background-size: cover;
   height: 1600px;
+}
+
+#chart {
+  background-color: #f5f2eb;
+  border: 1px solid #ccc;
 }
