@@ -27,7 +27,6 @@ class ProfileContainer extends Component {
     }).then(response => {
       return response.json().then(json => {
         json.entries.forEach(entry => {
-          // entry.date = entry.date.getFullYear()
           const temp = this.state.data;
           temp.push(entry);
           this.setState({data: temp})
