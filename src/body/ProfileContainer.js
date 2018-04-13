@@ -13,63 +13,25 @@ class ProfileContainer extends Component {
     let { isLoginPending, isLoginSuccess, loginError, userId } = this.props;
 
     this.state = {
-      date: Date.now(),
+      date: null,
       userId: this.props.userId,
-      data: [
-        {
-          country: "India",
-          value: 273
-        },
-        {
-          country: "USA",
-          value: 2420
-        },
-        {
-          country: "China",
-          value: 1270
-        },
-        {
-          country: "UK",
-          value: 553
-        },
-        {
-          country: "Germany",
-          value: 731
-        },
-        {
-          country: "Sweden",
-          value: 136
-        },
-        {
-          country: "France",
-          value: 682
-        },
-        {
-          country: "Australia",
-          value: 239
-        },
-        {
-          country: "Canada",
-          value: 367
-        },
-        {
-          country: "Brazil",
-          value: 442
-        }
-      ]
+      data: []
     };
 
     console.log(this.props);
 
-    console.log(this.state);
     fetch("http://localhost:3001/api/userFoodEntries", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(this.state)
     }).then(response => {
       return response.json().then(json => {
-        console.log(json.entries)
-        this.state.data = json;
+        json.entries.forEach(entry => {
+          entry.date = entry.date.getFullYear()
+          const temp = this.state.data;
+          temp.push(entry);
+          this.setState({data: temp})
+        });
       });
     });
   }
@@ -78,7 +40,7 @@ class ProfileContainer extends Component {
     // create scales!
     const xScale = d3
       .scaleBand()
-      .domain(this.state.data.map(d => d.country))
+      .domain(this.state.data.map(d => d.date))
       .range([0, width]);
     const yScale = d3
       .scaleLinear()
@@ -92,7 +54,7 @@ class ProfileContainer extends Component {
       .enter()
       .append("rect")
       .classed("bar", true)
-      .attr("x", d => xScale(d.country))
+      .attr("x", d => xScale(d.date))
       .attr("y", d => yScale(d.value))
       .attr("height", d => height - yScale(d.value))
       .attr("width", d => xScale.bandwidth())
@@ -104,7 +66,7 @@ class ProfileContainer extends Component {
       .enter()
       .append("text")
       .classed("bar-label", true)
-      .attr("x", d => xScale(d.country) + xScale.bandwidth() / 2)
+      .attr("x", d => xScale(d.date) + xScale.bandwidth() / 2)
       .attr("dx", 0)
       .attr("y", d => yScale(d.value))
       .attr("dy", -6)
