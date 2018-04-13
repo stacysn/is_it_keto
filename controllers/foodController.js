@@ -22,8 +22,11 @@ exports.newEntry = function(req, res) {
 };
 
 exports.allUserEntries = function(req, res) {
-  FoodEntry.find({foodEater: req.body.userId}, function(err, entries) {
+  FoodEntry.find({ foodEater: req.body.userId }, function(err, entries) {
     if (err) res.send({ error: "error" });
-    res.send({ entries: entries });
+    User.findOne({ _id: req.body.userId }, function(err, user) {
+      if (err) res.send({ error: "error" });
+      res.send({ entries: entries, user: user.userName });
+    });
   });
 };

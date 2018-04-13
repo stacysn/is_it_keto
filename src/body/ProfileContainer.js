@@ -15,6 +15,7 @@ class ProfileContainer extends Component {
     this.state = {
       date: null,
       userId: this.props.userId,
+      userName: "",
       data: []
     };
 
@@ -26,13 +27,16 @@ class ProfileContainer extends Component {
       body: JSON.stringify(this.state)
     }).then(response => {
       return response.json().then(json => {
+        console.log(json);
+        this.setState({userName: json.user})
         json.entries.forEach(entry => {
           const temp = this.state.data;
           temp.push(entry);
-          this.setState({data: temp})
+          this.setState({ data: temp });
         });
       });
     });
+    console.log(this.state)
   }
 
   plot(chart, width, height) {
@@ -158,7 +162,7 @@ class ProfileContainer extends Component {
   render() {
     return (
       <div className="profile-container">
-        <h1>My Profile</h1>
+        <h1>{this.state.userName}</h1>
         {this.drawChart()}
         <FoodSearchContainer />
       </div>
