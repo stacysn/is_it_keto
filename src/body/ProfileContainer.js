@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Element } from "react-faux-dom";
 import * as d3 from "d3";
 import "../assets/styles/Profile.css";
@@ -8,7 +9,12 @@ import FoodSearchContainer from "./food/FoodSearchContainer.js";
 class ProfileContainer extends Component {
   constructor(props) {
     super(props);
+
+    let { isLoginPending, isLoginSuccess, loginError, userId } = this.props;
+
     this.state = {
+      date: Date.now(),
+      userId: this.props.userId,
       data: [
         {
           country: "India",
@@ -52,6 +58,20 @@ class ProfileContainer extends Component {
         }
       ]
     };
+
+    console.log(this.props);
+
+    console.log(this.state);
+    fetch("http://localhost:3001/api/userFoodEntries", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(this.state)
+    }).then(response => {
+      return response.json().then(json => {
+        console.log(json.entries)
+        this.state.data = json;
+      });
+    });
   }
 
   plot(chart, width, height) {
@@ -117,7 +137,7 @@ class ProfileContainer extends Component {
       .attr("fill", "#000")
       .style("font-size", "20px")
       .style("text-anchor", "middle")
-      .text("Country");
+      .text("Last 10 Days");
 
     chart
       .select(".y.axis")
@@ -128,7 +148,7 @@ class ProfileContainer extends Component {
       .attr("fill", "#000")
       .style("font-size", "20px")
       .style("text-anchor", "middle")
-      .text("Government Expenditure in Billion Dollars");
+      .text("Calories");
 
     const yGridlines = d3
       .axisLeft()
@@ -185,4 +205,13 @@ class ProfileContainer extends Component {
   }
 }
 
-export default ProfileContainer;
+const mapStateToProps = state => {
+  return {
+    isLoginPending: state.isLoginPending,
+    isLoginSuccess: state.isLoginSuccess,
+    loginError: state.loginError,
+    userId: state.userId
+  };
+};
+
+export default connect(mapStateToProps)(ProfileContainer);

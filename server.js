@@ -53,14 +53,14 @@ router
   .get(userController.userGet)
   .post(userController.userSignUp);
 
-router
-.route("/userLogin")
-.post(userController.userLogin);
+router.route("/userLogin").post(userController.userLogin);
 
 router
   .route("/foodEntry")
   .get(foodController.entryGet)
   .post(foodController.newEntry);
+
+router.route("/userFoodEntries").post(foodController.allUserEntries);
 
 app.use("/api", router);
 app.listen(port, function() {

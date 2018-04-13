@@ -1,5 +1,5 @@
 const FoodEntry = require("../models/foodEntry.js");
-const User = require("../models/user.js")
+const User = require("../models/user.js");
 
 //for testing only
 exports.entryGet = function(req, res) {
@@ -18,5 +18,12 @@ exports.newEntry = function(req, res) {
   entry.save(function(err) {
     if (err) res.send(err);
     res.json({ message: "Entry successfully added!" });
+  });
+};
+
+exports.allUserEntries = function(req, res) {
+  FoodEntry.find({foodEater: req.body.userId}, function(err, entries) {
+    if (err) res.send({ error: "error" });
+    res.send({ entries: entries });
   });
 };
