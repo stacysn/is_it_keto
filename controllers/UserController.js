@@ -27,7 +27,7 @@ exports.userSignUp = function(req, res) {
 
       user.optimalCalorieIntake = req.body.weight * 13;
 
-      user.memberSince = Date();
+      user.memberSince = new Date();
       user.save(function(err) {
         if (err) res.send(err);
         res.json({ message: "User successfully added!" });

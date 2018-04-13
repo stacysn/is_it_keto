@@ -13,7 +13,7 @@ exports.newEntry = function(req, res) {
   let entry = new FoodEntry();
   entry.foodData = req.body.foodData;
   entry.foodEater = req.body.foodEater;
-  entry.date = Date();
+  entry.date = new Date();
 
   entry.save(function(err) {
     if (err) res.send(err);
