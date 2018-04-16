@@ -12,13 +12,26 @@ class ProfileContainer extends Component {
 
     let { isLoginPending, isLoginSuccess, loginError, userId } = this.props;
 
+    const chartDate = new Date();
+
     this.state = {
       date: null,
       userId: this.props.userId,
       userName: "",
-      data: []
+      data: [],
+      chartDate: new Date(),
+      chartData: [
+        { date: `${chartDate.getMonth()}/${chartDate.getDate() - 6}` },
+        { date: `${chartDate.getMonth()}/${chartDate.getDate() - 5}` },
+        { date: `${chartDate.getMonth()}/${chartDate.getDate() - 4}` },
+        { date: `${chartDate.getMonth()}/${chartDate.getDate() - 3}` },
+        { date: `${chartDate.getMonth()}/${chartDate.getDate() - 2}` },
+        { date: `${chartDate.getMonth()}/${chartDate.getDate() - 1}` },
+        { date: `${chartDate.getMonth()}/${chartDate.getDate()}` }
+      ]
     };
 
+    console.log(this.state.chartData);
     console.log(this.props);
 
     fetch("http://localhost:3001/api/userFoodEntries", {
@@ -28,7 +41,7 @@ class ProfileContainer extends Component {
     }).then(response => {
       return response.json().then(json => {
         console.log(json);
-        this.setState({userName: json.user})
+        this.setState({ userName: json.user });
         json.entries.forEach(entry => {
           const temp = this.state.data;
           temp.push(entry);
@@ -36,24 +49,24 @@ class ProfileContainer extends Component {
         });
       });
     });
-    console.log(this.state)
+    console.log(this.state);
   }
 
   plot(chart, width, height) {
     // create scales!
     const xScale = d3
       .scaleBand()
-      .domain(this.state.data.map(d => d.date))
+      .domain(this.state.chartData.map(d => d.date))
       .range([0, width]);
     const yScale = d3
       .scaleLinear()
-      .domain([0, d3.max(this.state.data, d => d.value)])
+      .domain([0, d3.max(this.state.chartData, d => d.value)])
       .range([height, 0]);
     const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
 
     chart
       .selectAll(".bar")
-      .data(this.state.data)
+      .data(this.state.chartData)
       .enter()
       .append("rect")
       .classed("bar", true)
@@ -65,7 +78,7 @@ class ProfileContainer extends Component {
 
     chart
       .selectAll(".bar-label")
-      .data(this.state.data)
+      .data(this.state.chartData)
       .enter()
       .append("text")
       .classed("bar-label", true)
@@ -102,7 +115,7 @@ class ProfileContainer extends Component {
       .attr("fill", "#000")
       .style("font-size", "20px")
       .style("text-anchor", "middle")
-      .text("Last 10 Days");
+      .text("Last 7 Days");
 
     chart
       .select(".y.axis")
