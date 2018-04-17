@@ -12,8 +12,6 @@ class ProfileContainer extends Component {
 
     let { isLoginPending, isLoginSuccess, loginError, userId } = this.props;
 
-    const chartDate = new Date();
-
     this.state = {
       date: null,
       userId: this.props.userId,
@@ -21,8 +19,6 @@ class ProfileContainer extends Component {
       data: [],
       chartData: []
     };
-    //do it all on server, create chartData there
-    console.log(this.props);
 
     fetch("http://localhost:3001/api/userFoodEntries", {
       method: "POST",
@@ -30,8 +26,8 @@ class ProfileContainer extends Component {
       body: JSON.stringify(this.state)
     }).then(response => {
       return response.json().then(json => {
-        console.log(json);
         this.setState({ userName: json.user });
+        this.setState({ chartData: json.dataChart.reverse() });
         json.entries.forEach(entry => {
           const temp = this.state.data;
           temp.push(entry);
@@ -39,7 +35,6 @@ class ProfileContainer extends Component {
         });
       });
     });
-    console.log(this.state);
   }
 
   plot(chart, width, height) {
@@ -105,7 +100,7 @@ class ProfileContainer extends Component {
       .attr("fill", "#000")
       .style("font-size", "20px")
       .style("text-anchor", "middle")
-      .text("Last 7 Days");
+      .text("Carbs(g) for Last 10 Days");
 
     chart
       .select(".y.axis")
@@ -116,7 +111,7 @@ class ProfileContainer extends Component {
       .attr("fill", "#000")
       .style("font-size", "20px")
       .style("text-anchor", "middle")
-      .text("Carbs");
+      .text("");
 
     const yGridlines = d3
       .axisLeft()
