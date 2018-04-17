@@ -19,19 +19,17 @@ class ProfileContainer extends Component {
       userId: this.props.userId,
       userName: "",
       data: [],
-      chartDate: new Date(),
       chartData: [
-        { date: `${chartDate.getMonth()}/${chartDate.getDate() - 6}` },
-        { date: `${chartDate.getMonth()}/${chartDate.getDate() - 5}` },
-        { date: `${chartDate.getMonth()}/${chartDate.getDate() - 4}` },
-        { date: `${chartDate.getMonth()}/${chartDate.getDate() - 3}` },
-        { date: `${chartDate.getMonth()}/${chartDate.getDate() - 2}` },
-        { date: `${chartDate.getMonth()}/${chartDate.getDate() - 1}` },
-        { date: `${chartDate.getMonth()}/${chartDate.getDate()}` }
+        { date: `${chartDate.getMonth()}/${chartDate.getDate() - 6}`, value: null },
+        { date: `${chartDate.getMonth()}/${chartDate.getDate() - 5}`, value: null },
+        { date: `${chartDate.getMonth()}/${chartDate.getDate() - 4}`, value: null },
+        { date: `${chartDate.getMonth()}/${chartDate.getDate() - 3}`, value: null },
+        { date: `${chartDate.getMonth()}/${chartDate.getDate() - 2}`, value: null },
+        { date: `${chartDate.getMonth()}/${chartDate.getDate() - 1}`, value: null },
+        { date: `${chartDate.getMonth()}/${chartDate.getDate()}`, value: null }
       ]
     };
 
-    console.log(this.state.chartData);
     console.log(this.props);
 
     fetch("http://localhost:3001/api/userFoodEntries", {
@@ -126,7 +124,7 @@ class ProfileContainer extends Component {
       .attr("fill", "#000")
       .style("font-size", "20px")
       .style("text-anchor", "middle")
-      .text("Calories");
+      .text("Carbs");
 
     const yGridlines = d3
       .axisLeft()

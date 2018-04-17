@@ -24,9 +24,23 @@ exports.newEntry = function(req, res) {
 exports.allUserEntries = function(req, res) {
   FoodEntry.find({ foodEater: req.body.userId }, function(err, entries) {
     if (err) res.send({ error: "error" });
+    const currentDate = new Date();
+    const entriesThisWeek = [];
+
+    for (j = 0; entries.length > j; j++) {
+      for (let i = 0; 6 >= i; i++) {
+        if (
+          entries[j].date.getMonth() === currentDate.getMonth() &&
+          entries[j].date.getDate() === currentDate.getDate() - i
+        ) {
+          entriesThisWeek.push(entries[j]);
+        }
+      }
+    }
+
     User.findOne({ _id: req.body.userId }, function(err, user) {
       if (err) res.send({ error: "error" });
-      res.send({ entries: entries, user: user.userName });
+      res.send({ entries: entriesThisWeek, user: user.userName });
     });
   });
 };
