@@ -55,10 +55,8 @@ class ProfileContainer extends Component {
         body: JSON.stringify(this.state)
       }).then(response => {
         return response.json().then(json => {
-          console.log(json);
           this.setState({ userName: json.user });
           json.dataChart.forEach(entry => {
-            console.log(this.state.data);
             let temp = this.state.data;
             temp.labels.unshift(entry.date);
             temp.datasets[1].data.unshift(entry.value);
