@@ -69,6 +69,7 @@ class ProfileContainer extends Component {
           <Line
             data={this.state.data}
             options={this.state.options}
+            redraw={true}
             width="600"
             height="250"
           />
