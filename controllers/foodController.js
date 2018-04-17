@@ -28,7 +28,7 @@ exports.allUserEntries = function(req, res) {
     const entriesThisWeek = [];
     let dataChart = [];
 
-    for (i = 0; 9 >= i; i++) {
+    for (i = 0; 6 >= i; i++) {
       for (j = 0; entries.length > j; j++) {
         if (
           entries[j].date.getFullYear() === currentDate.getFullYear() &&
@@ -51,7 +51,7 @@ exports.allUserEntries = function(req, res) {
         } else if (dataChart[i] === undefined) {
           dataChart.push({
             date: `${currentDate.getMonth()}/${currentDate.getDate() - i}`,
-            value: null
+            value: 0
           });
         }
       }
