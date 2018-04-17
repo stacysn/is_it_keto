@@ -19,17 +19,9 @@ class ProfileContainer extends Component {
       userId: this.props.userId,
       userName: "",
       data: [],
-      chartData: [
-        { date: `${chartDate.getMonth()}/${chartDate.getDate() - 6}`, value: null },
-        { date: `${chartDate.getMonth()}/${chartDate.getDate() - 5}`, value: null },
-        { date: `${chartDate.getMonth()}/${chartDate.getDate() - 4}`, value: null },
-        { date: `${chartDate.getMonth()}/${chartDate.getDate() - 3}`, value: null },
-        { date: `${chartDate.getMonth()}/${chartDate.getDate() - 2}`, value: null },
-        { date: `${chartDate.getMonth()}/${chartDate.getDate() - 1}`, value: null },
-        { date: `${chartDate.getMonth()}/${chartDate.getDate()}`, value: null }
-      ]
+      chartData: []
     };
-
+    //do it all on server, create chartData there
     console.log(this.props);
 
     fetch("http://localhost:3001/api/userFoodEntries", {

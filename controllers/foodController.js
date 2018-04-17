@@ -26,21 +26,43 @@ exports.allUserEntries = function(req, res) {
     if (err) res.send({ error: "error" });
     const currentDate = new Date();
     const entriesThisWeek = [];
+    let dataChart = [];
 
-    for (j = 0; entries.length > j; j++) {
-      for (let i = 0; 6 >= i; i++) {
+    for (i = 0; 6 >= i; i++) {
+      for (j = 0; entries.length > j; j++) {
         if (
+          entries[j].date.getFullYear() === currentDate.getFullYear() &&
           entries[j].date.getMonth() === currentDate.getMonth() &&
           entries[j].date.getDate() === currentDate.getDate() - i
         ) {
+          if (dataChart[i] === undefined) {
+            dataChart.push({
+              date: `${currentDate.getMonth()}/${currentDate.getDate() - i}`,
+              value:
+                parseInt(entries[j].foodData.netCarbs) -
+                parseInt(entries[j].foodData.dietaryFiber)
+            });
+          } else {
+            dataChart[i].value += parseInt(
+              entries[j].foodData.netCarbs - entries[j].foodData.dietaryFiber
+            );
+          }
           entriesThisWeek.push(entries[j]);
+        } else if (dataChart[i] === undefined) {
+          dataChart.push({
+            date: `${currentDate.getMonth()}/${currentDate.getDate() - i}`
+          });
         }
       }
     }
 
     User.findOne({ _id: req.body.userId }, function(err, user) {
       if (err) res.send({ error: "error" });
-      res.send({ entries: entriesThisWeek, user: user.userName });
+      res.send({
+        entries: entriesThisWeek,
+        user: user.userName,
+        dataChart: dataChart
+      });
     });
   });
 };
