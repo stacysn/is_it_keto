@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Line } from "react-chartjs-2";
+import { browserHistory, withRouter } from "react-router-dom";
 import "../assets/styles/Profile.css";
 import FoodResults from "./food/FoodResults.js";
 import FoodSearchContainer from "./food/FoodSearchContainer.js";
@@ -41,27 +42,35 @@ class ProfileContainer extends Component {
         ]
       }
     };
-
-    fetch("http://localhost:3001/api/userFoodEntries", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(this.state)
-    }).then(response => {
-      return response.json().then(json => {
-        console.log(json);
-        this.setState({ userName: json.user });
-        json.dataChart.forEach(entry => {
-          console.log(this.state.data);
-          let temp = this.state.data;
-          temp.labels.unshift(entry.date);
-          temp.datasets[1].data.unshift(entry.value);
-          this.setState({ data: temp });
-        });
-      });
-    });
   }
 
+  timesDataFetched = 0;
+  handleRender = () => {
+    if (!this.props.isLoginSuccess) {
+      this.props.history.push("/");
+    } else {
+      fetch("http://localhost:3001/api/userFoodEntries", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(this.state)
+      }).then(response => {
+        return response.json().then(json => {
+          console.log(json);
+          this.setState({ userName: json.user });
+          json.dataChart.forEach(entry => {
+            console.log(this.state.data);
+            let temp = this.state.data;
+            temp.labels.unshift(entry.date);
+            temp.datasets[1].data.unshift(entry.value);
+            this.setState({ data: temp });
+          });
+        });
+      });
+      this.timesDataFetched++;
+    }
+  };
   render() {
+    if (this.timesDataFetched === 0) this.handleRender();
     return (
       <div className="profile-container">
         <h1>{this.state.userName}</h1>
@@ -89,4 +98,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(ProfileContainer);
+export default connect(mapStateToProps)(withRouter(ProfileContainer));
