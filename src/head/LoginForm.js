@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { login, logout } from "../redux/reducer";
+import { browserHistory, withRouter } from "react-router-dom";
 
 import "../assets/styles/Login.css";
 
@@ -15,8 +16,20 @@ class LoginForm extends Component {
   render() {
     let { userName, password } = this.state;
     let { isLoginPending, isLoginSuccess, loginError } = this.props;
-
-    if (this.props.isLoginSuccess === true) {
+    if (
+      this.props.history.location.pathname === "/profile" &&
+      this.props.isLoginSuccess === true
+    ) {
+      return (
+        <div>
+          <nav className="nav-list">
+            <a href="/home" type="submit" onClick={this.logout}>
+              Logout
+            </a>
+          </nav>
+        </div>
+      );
+    } else if (this.props.isLoginSuccess === true) {
       return (
         <div>
           <nav className="nav-list">
@@ -81,6 +94,7 @@ class LoginForm extends Component {
   logout = function(e) {
     e.preventDefault();
     this.props.logout(false);
+    this.props.history.push("/");
   };
 }
 
@@ -99,4 +113,6 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
+export default connect(mapStateToProps, mapDispatchToProps)(
+  withRouter(LoginForm)
+);
