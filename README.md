@@ -11,6 +11,7 @@
 <li><a href="https://redux.js.org/">Redux</a></li>
 <li><a href="https://sass-lang.com/">Sass</a></li>
 <li><a href="https://developer.nutritionix.com/">nutritionix API</a></li>
+<li><a href="https://www.chartjs.org/">Chart.js</a></li>
 </ul>
 <h2>Contributing</h2>
 <ol>

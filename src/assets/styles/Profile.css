@@ -1,5 +1,17 @@
 .profile-container {
   text-align: center;
-  background: url("../images/almonds.jpeg");
   background-size: cover;
   height: 1600px; }
+
+#chart {
+  background-color: #f5f2eb;
+  border: 1px solid #ccc; }
+
+.graphContainer {
+  border: "1px solid black";
+  padding: "15px";
+  width: 85%;
+  height: 85%;
+  display: inline-block;
+  text-align: center;
+  margin-bottom: -45%; }
