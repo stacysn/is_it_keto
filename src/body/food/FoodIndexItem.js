@@ -10,6 +10,12 @@ class FoodIndexItem extends Component {
       clicked: false
     };
   }
+
+  // disabled condition is removed from component on a new search
+  componentWillReceiveProps() {
+    this.setState({ clicked: false });
+  }
+
   handleNewEntry = event => {
     const entry = {
       foodData: {
@@ -36,7 +42,6 @@ class FoodIndexItem extends Component {
         }
       });
     });
-    //TODO: how to reset state on a new search?
     this.setState( { clicked: true } );
   };
 
