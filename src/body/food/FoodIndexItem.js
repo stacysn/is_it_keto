@@ -6,6 +6,7 @@ import "../../assets/styles/FoodIndexItem.css";
 class FoodIndexItem extends Component {
   constructor(props) {
     super(props);
+    this.state = {clicked: false};
   }
   handleNewEntry = event => {
     const entry = {
@@ -33,6 +34,11 @@ class FoodIndexItem extends Component {
         }
       });
     });
+    this.setState( (prevState) => ({
+      clicked: !prevState.clicked
+      })
+    );
+    console.log(this.state.clicked);
   };
 
   render() {
@@ -59,10 +65,10 @@ class FoodIndexItem extends Component {
             <p>{totalCarbs} g Total Carbs</p>
             <p>&mdash; {dietaryFiber} g Dietary Fiber</p>
             <p>= {netCarbs} g Net Carbs</p>
+            <button type="submit" onClick={this.handleNewEntry} disabled={this.state.clicked}>
+              Add to Profile
+            </button>
           </div>
-          <button type="submit" onClick={this.handleNewEntry}>
-            Add to Profile
-          </button>
         </div>
       );
     } else {
