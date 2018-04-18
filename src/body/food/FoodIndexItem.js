@@ -34,6 +34,7 @@ class FoodIndexItem extends Component {
         }
       });
     });
+    //TODO: how to reset state on a new search?
     this.setState( (prevState) => ({
       clicked: !prevState.clicked
       })
@@ -66,7 +67,7 @@ class FoodIndexItem extends Component {
             <p>&mdash; {dietaryFiber} g Dietary Fiber</p>
             <p>= {netCarbs} g Net Carbs</p>
             <button type="submit" onClick={this.handleNewEntry} disabled={this.state.clicked}>
-              Add to Profile
+              {!this.state.clicked ? 'Add to Profile' : 'Added'}
             </button>
           </div>
         </div>
