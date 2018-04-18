@@ -6,7 +6,9 @@ import "../../assets/styles/FoodIndexItem.css";
 class FoodIndexItem extends Component {
   constructor(props) {
     super(props);
-    this.state = {clicked: false};
+    this.state = {
+      clicked: false
+    };
   }
   handleNewEntry = event => {
     const entry = {
@@ -35,11 +37,7 @@ class FoodIndexItem extends Component {
       });
     });
     //TODO: how to reset state on a new search?
-    this.setState( (prevState) => ({
-      clicked: !prevState.clicked
-      })
-    );
-    console.log(this.state.clicked);
+    this.setState( { clicked: true } );
   };
 
   render() {
