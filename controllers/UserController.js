@@ -1,6 +1,7 @@
 const bcrypt = require("bcrypt");
 const User = require("../models/user.js");
 
+//for testing only
 exports.userGet = function(req, res) {
   User.find(function(err, users) {
     if (err) res.send(err);
