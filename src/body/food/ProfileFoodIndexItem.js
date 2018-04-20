@@ -19,7 +19,7 @@ class ProfileFoodIndexItem extends Component {
     }).then(response => {
       return response.json().then(json => {
         if (response.ok) {
-          console.log("Deleted" + json);
+          console.log("Deleted: " + json);
         } else {
           console.log("Failed to delete entry =[");
         }

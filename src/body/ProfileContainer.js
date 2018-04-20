@@ -73,6 +73,7 @@ class ProfileContainer extends Component {
       this.timesDataFetched++;
     }
   };
+
   render() {
     if (this.timesDataFetched === 0) this.handleRender();
     return (
@@ -87,7 +88,7 @@ class ProfileContainer extends Component {
             height="250"
           />
         </div>
-        <ProfileFoodResults foodEntries = {this.state.resultCardData} />
+        <ProfileFoodResults foodEntries={this.state.resultCardData} />
         <FoodSearchContainer />
       </div>
     );
