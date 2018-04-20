@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import FoodIndexItem from "./FoodIndexItem";
+import ProfileFoodIndexItem from "./ProfileFoodIndexItem";
 
 class ProfileFoodResults extends Component {
   constructor(props, context) {
@@ -32,7 +32,7 @@ class ProfileFoodResults extends Component {
             const netCarbs = element.netCarbs;
 
             return (
-              <FoodIndexItem
+              <ProfileFoodIndexItem
                 dietaryFiber={dietaryFiber}
                 foodName={foodName}
                 isKeto={this.isKeto(netCarbs)}
