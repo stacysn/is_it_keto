@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import "../../assets/styles/FoodIndexItem.css";
+import "../../assets/styles/ProfileFoodIndexItem.css";
 
 class ProfileFoodIndexItem extends Component {
   constructor(props) {
@@ -60,8 +60,8 @@ class ProfileFoodIndexItem extends Component {
             <p>&mdash; {dietaryFiber} g Dietary Fiber</p>
             <p>= {netCarbs} g Net Carbs</p>
           </div>
-          <button type="submit" onClick={this.handleNewEntry}>
-            Add to Profile
+          <button className="food-idx-item-btn" type="submit" onClick={this.handleNewEntry}>
+            Delete
           </button>
         </div>
       );
