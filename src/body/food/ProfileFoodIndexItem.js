@@ -7,29 +7,21 @@ class ProfileFoodIndexItem extends Component {
   constructor(props) {
     super(props);
   }
-  handleNewEntry = event => {
+  handleDeleteEntry = event => {
     const entry = {
-      foodData: {
-        dietaryFiber: this.props.dietaryFiber,
-        foodName: this.props.foodName,
-        netCarbs: this.props.netCarbs,
-        servingSize: this.props.servingSize,
-        servingSizeGrams: this.props.servingSizeGrams,
-        totalCarbs: this.props.totalCarbs
-      },
-      foodEater: this.props.userId
+      id: this.props.id
     };
     event.preventDefault();
     fetch("http://localhost:3001/api/foodEntry", {
-      method: "POST",
+      method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(entry)
     }).then(response => {
       return response.json().then(json => {
         if (response.ok) {
-          console.log("New Entry Created!");
+          console.log("Deleted" + json);
         } else {
-          console.log("Failed to create new entry =[");
+          console.log("Failed to delete entry =[");
         }
       });
     });
@@ -63,7 +55,11 @@ class ProfileFoodIndexItem extends Component {
             <p>&mdash; {dietaryFiber} g Dietary Fiber</p>
             <p>= {netCarbs} g Net Carbs</p>
           </div>
-          <button className="food-idx-item-btn" type="submit" onClick={this.handleNewEntry}>
+          <button
+            className="food-idx-item-btn"
+            type="submit"
+            onClick={this.handleDeleteEntry}
+          >
             Delete
           </button>
         </div>
