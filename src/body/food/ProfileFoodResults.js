@@ -23,16 +23,24 @@ class ProfileFoodResults extends Component {
       <div className="food-results-container">
         <h1>Food From the Last Week</h1>
         <div id="food-results">
-          {this.props.foodData.map((element, index) => {
-            const totalCarbs = element.totalCarbs;
-            const servingSize = element.servingSize;
-            const servingSizeGrams = element.servingSizeGrams;
-            const foodName = element.foodName;
-            const dietaryFiber = element.dietaryFiber;
-            const netCarbs = element.netCarbs;
+          {this.props.foodEntries.map((element, index) => {
+            const totalCarbs = element.foodData.totalCarbs;
+            const servingSize = element.foodData.servingSize;
+            const servingSizeGrams = element.foodData.servingSizeGrams;
+            const foodName = element.foodData.foodName;
+            const dietaryFiber = element.foodData.dietaryFiber;
+            const netCarbs = element.foodData.netCarbs;
+            const date =
+              element.date.split("")[6] +
+              "/" +
+              element.date.slice(8, 10) +
+              "/" +
+              element.date.slice(0, 4);
+            console.log(element.date);
 
             return (
               <ProfileFoodIndexItem
+                date={date}
                 dietaryFiber={dietaryFiber}
                 foodName={foodName}
                 isKeto={this.isKeto(netCarbs)}

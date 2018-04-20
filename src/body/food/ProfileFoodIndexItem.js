@@ -37,6 +37,7 @@ class ProfileFoodIndexItem extends Component {
 
   render() {
     const {
+      date,
       dietaryFiber,
       foodName,
       isKeto,
@@ -50,6 +51,7 @@ class ProfileFoodIndexItem extends Component {
       return (
         <div>
           <div className="food-idx-item">
+            <p>{date}</p>
             <b>
               {foodName} &mdash; {isKeto}
             </b>
@@ -68,6 +70,7 @@ class ProfileFoodIndexItem extends Component {
     } else {
       return (
         <div className="food-idx-item">
+          <p>{date}</p>
           <b>
             {foodName} &mdash; {isKeto}
           </b>

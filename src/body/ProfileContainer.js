@@ -65,7 +65,7 @@ class ProfileContainer extends Component {
           });
           json.entries.forEach(entry => {
             let temp = this.state.resultCardData;
-            temp.push(entry.foodData);
+            temp.push(entry);
             this.setState({ resultCardData: temp });
           });
         });
@@ -87,7 +87,7 @@ class ProfileContainer extends Component {
             height="250"
           />
         </div>
-        <ProfileFoodResults foodData = {this.state.resultCardData} />
+        <ProfileFoodResults foodEntries = {this.state.resultCardData} />
         <FoodSearchContainer />
       </div>
     );
