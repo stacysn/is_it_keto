@@ -58,7 +58,8 @@ router.route("/userLogin").post(userController.userLogin);
 router
   .route("/foodEntry")
   .get(foodController.entryGet)
-  .post(foodController.newEntry);
+  .post(foodController.newEntry)
+  .delete(foodController.deleteEntry);
 
 router.route("/userFoodEntries").post(foodController.allUserEntries);
 

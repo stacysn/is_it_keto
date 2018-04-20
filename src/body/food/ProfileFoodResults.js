@@ -37,7 +37,6 @@ class ProfileFoodResults extends Component {
               element.date.slice(8, 10) +
               "/" +
               element.date.slice(0, 4);
-            console.log(element.date);
 
             return (
               <ProfileFoodIndexItem
