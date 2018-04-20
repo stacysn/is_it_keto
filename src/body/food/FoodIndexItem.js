@@ -6,7 +6,16 @@ import "../../assets/styles/FoodIndexItem.css";
 class FoodIndexItem extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      clicked: false
+    };
   }
+
+  // disabled condition is removed from component on a new search
+  componentWillReceiveProps() {
+    this.setState({ clicked: false });
+  }
+
   handleNewEntry = event => {
     const entry = {
       foodData: {
@@ -33,6 +42,7 @@ class FoodIndexItem extends Component {
         }
       });
     });
+    this.setState( { clicked: true } );
   };
 
   render() {
@@ -59,10 +69,10 @@ class FoodIndexItem extends Component {
             <p>{totalCarbs} g Total Carbs</p>
             <p>&mdash; {dietaryFiber} g Dietary Fiber</p>
             <p>= {netCarbs} g Net Carbs</p>
+            <button type="submit" onClick={this.handleNewEntry} disabled={this.state.clicked}>
+              {!this.state.clicked ? 'Add to Profile' : 'Added'}
+            </button>
           </div>
-          <button type="submit" onClick={this.handleNewEntry}>
-            Add to Profile
-          </button>
         </div>
       );
     } else {
