@@ -21,7 +21,7 @@ class ProfileFoodResults extends Component {
   render() {
     return (
       <div className="food-results-container">
-        <h1>FoodResults</h1>
+        <h1>Food From the Last Week</h1>
         <div id="food-results">
           {this.props.foodData.map((element, index) => {
             const totalCarbs = element.totalCarbs;
