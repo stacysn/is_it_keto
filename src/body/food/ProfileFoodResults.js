@@ -24,6 +24,7 @@ class ProfileFoodResults extends Component {
         <h1>Food From the Last Week</h1>
         <div id="food-results">
           {this.props.foodEntries.map((element, index) => {
+            const entryId = element._id
             const totalCarbs = element.foodData.totalCarbs;
             const servingSize = element.foodData.servingSize;
             const servingSizeGrams = element.foodData.servingSizeGrams;
@@ -40,6 +41,7 @@ class ProfileFoodResults extends Component {
 
             return (
               <ProfileFoodIndexItem
+                id={entryId}
                 date={date}
                 dietaryFiber={dietaryFiber}
                 foodName={foodName}

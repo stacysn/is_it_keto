@@ -37,6 +37,7 @@ class ProfileFoodIndexItem extends Component {
 
   render() {
     const {
+      id,
       date,
       dietaryFiber,
       foodName,
