@@ -67,3 +67,10 @@ exports.allUserEntries = function(req, res) {
     });
   });
 };
+
+exports.deleteEntry = function(req, res) {
+  const entryId = req.body.id;
+  FoodEntry.findOneAndRemove({ _id: entryId }, function(err, deletedEntry) {
+    res.json(deletedEntry);
+  });
+};

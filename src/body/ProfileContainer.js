@@ -5,6 +5,7 @@ import { browserHistory, withRouter } from "react-router-dom";
 import "../assets/styles/Profile.css";
 import FoodResults from "./food/FoodResults.js";
 import FoodSearchContainer from "./food/FoodSearchContainer.js";
+import ProfileFoodResults from "./food/ProfileFoodResults.js";
 
 class ProfileContainer extends Component {
   constructor(props) {
@@ -13,9 +14,9 @@ class ProfileContainer extends Component {
     let { isLoginPending, isLoginSuccess, loginError, userId } = this.props;
 
     this.state = {
-      date: null,
       userId: this.props.userId,
       userName: "",
+      resultCardData: [],
       data: {
         labels: [],
         datasets: [
@@ -62,11 +63,17 @@ class ProfileContainer extends Component {
             temp.datasets[1].data.unshift(entry.value);
             this.setState({ data: temp });
           });
+          json.entries.forEach(entry => {
+            let temp = this.state.resultCardData;
+            temp.push(entry);
+            this.setState({ resultCardData: temp });
+          });
         });
       });
       this.timesDataFetched++;
     }
   };
+
   render() {
     if (this.timesDataFetched === 0) this.handleRender();
     return (
@@ -81,6 +88,7 @@ class ProfileContainer extends Component {
             height="250"
           />
         </div>
+        <ProfileFoodResults foodEntries={this.state.resultCardData} />
         <FoodSearchContainer />
       </div>
     );

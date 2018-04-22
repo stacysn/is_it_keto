@@ -9,9 +9,24 @@ class LoginForm extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.onSubmit = this.onSubmit.bind(this);
-    this.logout = this.logout.bind(this);
   }
+
+//changes in the forms need to be handled by a function
+  onSubmit = e => {
+    e.preventDefault();
+    let { userName, password } = this.state;
+    this.props.login(userName, password);
+    this.setState({
+      userName: "",
+      password: ""
+    });
+  };
+
+  logout = e => {
+    e.preventDefault();
+    this.props.logout(false);
+    this.props.history.push("/");
+  };
 
   render() {
     let { userName, password } = this.state;
@@ -80,22 +95,6 @@ class LoginForm extends Component {
       );
     }
   }
-
-  onSubmit = function(e) {
-    e.preventDefault();
-    let { userName, password } = this.state;
-    this.props.login(userName, password);
-    this.setState({
-      userName: "",
-      password: ""
-    });
-  };
-
-  logout = function(e) {
-    e.preventDefault();
-    this.props.logout(false);
-    this.props.history.push("/");
-  };
 }
 
 const mapStateToProps = state => {
