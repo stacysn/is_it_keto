@@ -6,7 +6,16 @@ import "../../assets/styles/ProfileFoodIndexItem.css";
 class ProfileFoodIndexItem extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      clicked: false
+    };
   }
+
+  // disabled condition is removed from component on a new search
+  componentWillReceiveProps = () => {
+    this.setState({ clicked: false });
+  };
+
   handleDeleteEntry = event => {
     const entry = {
       id: this.props.id
@@ -25,6 +34,7 @@ class ProfileFoodIndexItem extends Component {
         }
       });
     });
+    this.setState({ clicked: true });
   };
 
   render() {
@@ -60,7 +70,7 @@ class ProfileFoodIndexItem extends Component {
             type="submit"
             onClick={this.handleDeleteEntry}
           >
-            Delete
+            {!this.state.clicked ? "Add to Profile" : "Deleted"}
           </button>
         </div>
       );

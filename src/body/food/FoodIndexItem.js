@@ -12,9 +12,9 @@ class FoodIndexItem extends Component {
   }
 
   // disabled condition is removed from component on a new search
-  componentWillReceiveProps() {
+  componentWillReceiveProps = () => {
     this.setState({ clicked: false });
-  }
+  };
 
   handleNewEntry = event => {
     const entry = {
@@ -42,7 +42,7 @@ class FoodIndexItem extends Component {
         }
       });
     });
-    this.setState( { clicked: true } );
+    this.setState({ clicked: true });
   };
 
   render() {
@@ -69,8 +69,12 @@ class FoodIndexItem extends Component {
             <p>{totalCarbs} g Total Carbs</p>
             <p>&mdash; {dietaryFiber} g Dietary Fiber</p>
             <p>= {netCarbs} g Net Carbs</p>
-            <button type="submit" onClick={this.handleNewEntry} disabled={this.state.clicked}>
-              {!this.state.clicked ? 'Add to Profile' : 'Added'}
+            <button
+              type="submit"
+              onClick={this.handleNewEntry}
+              disabled={this.state.clicked}
+            >
+              {!this.state.clicked ? "Add to Profile" : "Added"}
             </button>
           </div>
         </div>
