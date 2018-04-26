@@ -9,7 +9,6 @@ class FoodSearchContainer extends Component {
     this.state = {
       results: []
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit = async event => {

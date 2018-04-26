@@ -13,7 +13,8 @@ class SignUpForm extends Component {
       password: "",
       name: "",
       weight: "",
-      height: ""
+      feet: "",
+      inches:""
     };
   }
 
@@ -97,14 +98,23 @@ class SignUpForm extends Component {
               <br />
               <label htmlFor="name">Height: </label>
               <input
-                name="height"
-                id="height"
-                placeholder="Height"
-                value={this.state.height}
+                name="feet"
+                id="feet"
+                placeholder="Feet"
+                value={this.state.feet}
                 onChange={this.handleChange}
                 autoFocus
               />
               <br />
+                <input
+                  name="inches"
+                  id="inches"
+                  placeholder="Inches"
+                  value={this.state.inches}
+                  onChange={this.handleChange}
+                  autoFocus
+                />
+                <br />
               <button type="submit">Sign Up</button>
             </form>
           </div>
