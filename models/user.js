@@ -6,7 +6,7 @@ const UserSchema = new Schema({
   password: String,
   name: String,
   weight: Number,
-  height: Number,
+  height: Object,
   memberSince: Object,
   optimalCalorieIntake: Number
   // foodEntry: {

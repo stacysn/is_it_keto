@@ -46,36 +46,39 @@ class ProfileContainer extends Component {
   }
 
   timesDataFetched = 0;
-  handleRender = () => {
+  handleRender = async () => {
     if (!this.props.isLoginSuccess) {
       this.props.history.push("/");
     } else {
-      fetch("http://localhost:3001/api/userFoodEntries", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(this.state)
-      }).then(response => {
-        return response.json().then(json => {
-          this.setState({ userName: json.user });
-          json.dataChart.forEach(entry => {
-            let temp = this.state.data;
-            temp.labels.unshift(entry.date);
-            temp.datasets[1].data.unshift(entry.value);
-            this.setState({ data: temp });
-          });
-          json.entries.forEach(entry => {
-            let temp = this.state.resultCardData;
-            temp.push(entry);
-            this.setState({ resultCardData: temp });
-          });
-        });
-      });
       this.timesDataFetched++;
+      const response = await fetch(
+        "http://localhost:3001/api/userFoodEntries",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ userId: this.state.userId })
+        }
+      );
+      const json = await response.json();
+      this.setState({ userName: json.user });
+      json.dataChart.forEach(entry => {
+        let temp = this.state.data;
+        temp.labels.unshift(entry.date);
+        temp.datasets[1].data.unshift(entry.value);
+        this.setState({ data: temp });
+      });
+      json.entries.forEach(entry => {
+        let temp = this.state.resultCardData;
+        temp.push(entry);
+        this.setState({ resultCardData: temp });
+      });
     }
   };
 
   render() {
-    if (this.timesDataFetched === 0) this.handleRender();
+    if (this.timesDataFetched === 0) {
+      this.handleRender();
+    }
     return (
       <div className="profile-container">
         <h1>{this.state.userName}</h1>

@@ -13,7 +13,8 @@ class SignUpForm extends Component {
       password: "",
       name: "",
       weight: "",
-      height: ""
+      feet: "",
+      inches:""
     };
   }
 
@@ -21,29 +22,27 @@ class SignUpForm extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  handleSignUp = event => {
+  handleSignUp = async event => {
     event.preventDefault();
 
-    fetch("http://localhost:3001/api/users", {
+    const response = await fetch("http://localhost:3001/api/users", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(this.state)
-    }).then(response => {
-      return response.json().then(json => {
-        if (!json.userExists) {
-          console.log("Sign up success!");
-          let { userName, password } = this.state;
-          this.props.login(userName, password);
-          this.setState({
-            userName: "",
-            password: ""
-          });
-          this.props.history.push("/");
-        } else {
-          alert("Username already taken");
-        }
-      });
     });
+    const json = await response.json();
+    if (!json.userExists) {
+      console.log("Sign up success!");
+      let { userName, password } = this.state;
+      this.props.login(userName, password);
+      this.setState({
+        userName: "",
+        password: ""
+      });
+      this.props.history.push("/");
+    } else {
+      alert("Username already taken");
+    }
   };
 
   render() {
@@ -99,14 +98,23 @@ class SignUpForm extends Component {
               <br />
               <label htmlFor="name">Height: </label>
               <input
-                name="height"
-                id="height"
-                placeholder="Height"
-                value={this.state.height}
+                name="feet"
+                id="feet"
+                placeholder="Feet"
+                value={this.state.feet}
                 onChange={this.handleChange}
                 autoFocus
               />
               <br />
+                <input
+                  name="inches"
+                  id="inches"
+                  placeholder="Inches"
+                  value={this.state.inches}
+                  onChange={this.handleChange}
+                  autoFocus
+                />
+                <br />
               <button type="submit">Sign Up</button>
             </form>
           </div>

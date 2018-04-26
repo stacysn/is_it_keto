@@ -17,14 +17,7 @@ exports.userSignUp = function(req, res) {
       user.password = bcrypt.hashSync(req.body.password, 10);
       user.name = req.body.name;
       user.weight = req.body.weight;
-
-      if (req.body.height.includes('"')) {
-        let height = req.body.height.split("");
-        height.splice(1, 1);
-        user.height = parseInt(height.join(""));
-      } else {
-        user.height = req.body.height;
-      }
+      user.height = { feet: req.body.feet, inches: req.body.inches };
 
       user.optimalCalorieIntake = req.body.weight * 13;
 

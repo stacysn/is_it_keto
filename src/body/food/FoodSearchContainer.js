@@ -9,40 +9,37 @@ class FoodSearchContainer extends Component {
     this.state = {
       results: []
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(event) {
+  handleSubmit = async event => {
     event.preventDefault();
 
     let foodSearchQuery = document.getElementById("foodSearchInput").value;
     const key = keys.nutritionixKey;
     const appId = keys.nutritionixAppId;
 
-    fetch(`https://trackapi.nutritionix.com/v2/natural/nutrients`, {
-      method: "post",
-      headers: {
-        "x-app-key": `${key}`,
-        "x-app-id": `${appId}`,
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        query: foodSearchQuery
-      })
-    }).then(response => {
-      if (response.status !== 200) {
-        console.log("Error: " + response.status);
-        return;
+    const response = await fetch(
+      `https://trackapi.nutritionix.com/v2/natural/nutrients`,
+      {
+        method: "post",
+        headers: {
+          "x-app-key": `${key}`,
+          "x-app-id": `${appId}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          query: foodSearchQuery
+        })
       }
-      // TODO: .fail this console log
-
-      response.json().then(data => {
-        const results = data.foods;
-        this.setState({ results });
-        console.log("new state: ", this.state.results);
-      });
-    });
-  }
+    );
+    if (response.status !== 200) {
+      console.log("Error: " + response.status);
+    }
+    const data = await response.json();
+    const results = data.foods;
+    this.setState({ results });
+    console.log("new state: ", this.state.results);
+  };
 
   render() {
     return (

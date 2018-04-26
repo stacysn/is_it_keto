@@ -6,25 +6,33 @@ import "../../assets/styles/ProfileFoodIndexItem.css";
 class ProfileFoodIndexItem extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      clicked: false
+    };
   }
-  handleDeleteEntry = event => {
+
+  // disabled condition is removed from component on a new search
+  componentWillReceiveProps = () => {
+    this.setState({ clicked: false });
+  };
+
+  handleDeleteEntry = async event => {
     const entry = {
       id: this.props.id
     };
     event.preventDefault();
-    fetch("http://localhost:3001/api/foodEntry", {
+    const response = await fetch("http://localhost:3001/api/foodEntry", {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(entry)
-    }).then(response => {
-      return response.json().then(json => {
-        if (response.ok) {
-          console.log("Deleted: " + json);
-        } else {
-          console.log("Failed to delete entry =[");
-        }
-      });
     });
+    const json = await response.json();
+    if (response.ok) {
+      console.log("Deleted: " + json);
+    } else {
+      console.log("Failed to delete entry =[");
+    }
+    this.setState({ clicked: true });
   };
 
   render() {
@@ -60,7 +68,7 @@ class ProfileFoodIndexItem extends Component {
             type="submit"
             onClick={this.handleDeleteEntry}
           >
-            Delete
+            {!this.state.clicked ? "Delete" : "Deleted"}
           </button>
         </div>
       );
