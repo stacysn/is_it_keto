@@ -16,7 +16,7 @@ class FoodIndexItem extends Component {
     this.setState({ clicked: false });
   };
 
-  handleNewEntry = event => {
+  handleNewEntry = async event => {
     const entry = {
       foodData: {
         dietaryFiber: this.props.dietaryFiber,
@@ -29,19 +29,17 @@ class FoodIndexItem extends Component {
       foodEater: this.props.userId
     };
     event.preventDefault();
-    fetch("http://localhost:3001/api/foodEntry", {
+    const response = await fetch("http://localhost:3001/api/foodEntry", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(entry)
-    }).then(response => {
-      return response.json().then(json => {
-        if (response.ok) {
-          console.log("New Entry Created!");
-        } else {
-          console.log("Failed to create new entry =[");
-        }
-      });
     });
+    const json = await response.json();
+    if (response.ok) {
+      console.log("New Entry Created!");
+    } else {
+      console.log("Failed to create new entry =[");
+    }
     this.setState({ clicked: true });
   };
 

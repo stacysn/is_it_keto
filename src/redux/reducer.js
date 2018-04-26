@@ -63,20 +63,18 @@ function callLoginApi(userName, password, callback) {
     userName: userName,
     password: password
   };
-  setTimeout(() => {
-    fetch("http://localhost:3001/api/userLogin", {
+  setTimeout(async () => {
+    const response = await fetch("http://localhost:3001/api/userLogin", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(request)
-    }).then(response => {
-      return response.json().then(json => {
-        if (json.message !== "Login Fail") {
-          callback(json._id);
-        } else {
-          callback("Invalid Username or Password");
-        }
-      });
     });
+    const json = await response.json();
+    if (json.message !== "Login Fail") {
+      callback(json._id);
+    } else {
+      callback("Invalid Username or Password");
+    }
   }, 1000);
 }
 
