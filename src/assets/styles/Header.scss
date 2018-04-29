@@ -20,16 +20,21 @@ $fs2: 20px;
   color: $tc2;
 }
 
-.nav-list {
+.signup-nav {
   text-align: right;
   padding-bottom: 5px;
+  position: relative;
 }
 
-.nav-list a {
+.signup-nav a {
   padding-right: 20px;
   text-decoration: none;
   color: $tc2;
   font-family: $ff;
+  font-size: $fs;
+}
+
+.nav-list a {
   font-size: $fs;
 }
 

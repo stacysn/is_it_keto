@@ -11,15 +11,19 @@
   font-weight: bold;
   color: #136f63; }
 
-.nav-list {
+.signup-nav {
   text-align: right;
-  padding-bottom: 5px; }
+  padding-bottom: 5px;
+  position: relative; }
 
-.nav-list a {
+.signup-nav a {
   padding-right: 20px;
   text-decoration: none;
   color: #136f63;
   font-family: "Crimson Text", serif;
+  font-size: 14px; }
+
+.nav-list a {
   font-size: 14px; }
 
 .nav-list a:hover {
