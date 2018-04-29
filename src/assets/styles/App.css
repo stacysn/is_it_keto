@@ -1,9 +1,10 @@
 .App {
+  position: relative;
+  top: 200px;
   text-align: center;
   width: 100%; }
 
 body {
-  background-color: #79C99E;
   margin: 0; }
 
 .App-title {
