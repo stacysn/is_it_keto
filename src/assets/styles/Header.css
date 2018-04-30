@@ -1,8 +1,15 @@
 .header {
+  background-color: #222;
+  position: fixed;
+  top: 0px;
+  overflow: hidden;
   border: black;
   border-style: solid;
-  text-align: center;
-  height: 100px; }
+  text-align: left;
+  width: 100%;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  color: white; }
 
 .header a {
   font-size: 40px;
@@ -10,56 +17,47 @@
   font-weight: bold;
   color: #136f63; }
 
-.nav-list {
-  text-align: right;
-  padding-bottom: 5px; }
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table; }
 
-.nav-list a {
-  padding-right: 20px;
+.header-logo {
+  float: left;
+  padding-left: 20px; }
+
+.signup-nav {
+  text-align: right;
+  padding-bottom: 5px;
+  position: relative; }
+
+.signup-nav a {
   text-decoration: none;
   color: #136f63;
   font-family: "Crimson Text", serif;
-  font-size: 18px; }
+  font-size: 14px; }
+
+.nav-list a {
+  font-size: 14px; }
 
 .nav-list a:hover {
   color: #006989;
-  font-size: 20px;
   font-weight: bold; }
 
 .signup-nav a {
   position: relative;
   z-index: 100; }
 
-.form-group-collection label {
-  color: white;
-  padding-right: 5px; }
-
-#loginForm {
-  position: relative;
-  bottom: 70px; }
-
-.login-form-username {
-  position: relative;
-  left: 4%;
-  top: 50px;
-  z-index: 101;
-  width: 25%; }
-
-.login-form-password {
-  position: relative;
-  left: 19%;
-  top: 10px;
-  z-index: 100;
-  width: 25%; }
-
-.login-button {
-  position: relative;
-  bottom: 30px;
-  right: 8%;
-  z-index: 100; }
-
-.message {
-  position: relative;
-  bottom: 60px;
-  left: 2%;
-  color: white; }
+@media only screen and (max-width: 835px) {
+  .header-logo,
+  #loginForm {
+    float: none; }
+  .header-logo {
+    padding-left: 0; }
+  #loginForm {
+    padding-right: 0; }
+  .header-logo,
+  #loginForm,
+  .signup-nav,
+  .message {
+    text-align: center; } }

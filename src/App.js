@@ -9,11 +9,24 @@ import SignUp from "./pages/SignUp.js";
 class App extends Component {
   render() {
     return (
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/profile" component={Profile} />
-        <Route exact path="/signup" component={SignUp} />
-      </Switch>
+      <div className="main-container">
+        <div>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/signup" component={SignUp} />
+          </Switch>
+
+
+        </div>
+          <div className="footer-copyright">
+          <div className="container" style={{fontSize: '16px'}}>
+            © 2018 Copyright
+            Created by <a href='#'>Ryan Barrett, Daryl Lazaro, & Stacy Suen</a>
+          </div>
+        </div>
+
+      </div>
     );
   }
 }

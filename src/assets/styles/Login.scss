@@ -1,5 +1,13 @@
 #loginForm {
-  position: relative;
-  left: 25%;
-  bottom: 40px;
+  float: right;
+  padding-right: 20px;
+}
+
+.form-group {
+  display: inline-block;
+}
+
+.message {
+  text-align: right;
+  color: white;
 }

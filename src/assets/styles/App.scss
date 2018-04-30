@@ -1,40 +1,49 @@
+$fs: 'Montserrat', arial, sans-serif;
+$bg-color: #508484;
+
 .App {
+  position: relative;
+  top: 200px;
   text-align: center;
-  background-image: url('../images/lemon.jpeg');
-  background-size: cover;
-  background-attachment: fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   width: 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
-  height: 1600px;
+  font-family: $fs;
+  letter-spacing: 3px;
 }
 
-
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.parallax {
+  position: relative;
+  bottom: 90px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+body{
+  margin: 0;
 }
 
 .App-title {
   font-size: 1.5em;
 }
 
-.App-intro {
-  font-size: large;
+.App-intro h1{
+  position: relative;
+  margin-top: 100px;
+  font-weight: 100;
+  letter-spacing: 5px;
+  color: grey
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+
+.footer-copyright {
+ position: absolute;
+ bottom: 0;
+ width: 100%;
+ background-color: $bg-color;
+ height: 50px;
+}
+
+.main-container {
+ min-height: 100vh; /* will cover the 100% of viewport */
+ overflow: hidden;
+ display: block;
+ position: relative;
+ padding-bottom: 400px; /* height of your footer */
 }
