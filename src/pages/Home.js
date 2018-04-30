@@ -15,8 +15,12 @@ class Home extends Component {
           bgImageAlt="the lemon"
           strength={200}
         >
-
-          <div style={{ height: '600px' }} />
+      <div  className="App-intro">
+        <h1> Welcome to your new health app </h1>
+        <h1> Look up any servings of food to see if it is keto friendly</h1>
+        <h1> Create a profile to check your consumption </h1>
+      </div>
+          <div style={{ height: '400px' }} />
         </Parallax>
       </div>
 
