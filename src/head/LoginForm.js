@@ -58,9 +58,11 @@ class LoginForm extends Component {
     } else {
       return (
         <div>
-          <nav className="nav-list signup-nav">
-            <a href="/signup">Sign Up</a>
-          </nav>
+          <div className="signup-nav">
+            Need an account?
+            <a href="/signup">Sign Up!</a>
+          </div>
+
           <form name="loginForm" id="loginForm" onSubmit={this.onSubmit}>
             <div className="form-group-collection">
               <div className="form-group login-form-username">
@@ -91,6 +93,7 @@ class LoginForm extends Component {
               {loginError && <div>{loginError.message}</div>}
             </div>
           </form>
+
         </div>
       );
     }

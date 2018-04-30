@@ -1,14 +1,23 @@
 $tc: #006989;
 $tc2: #136f63;
 $ff: "Crimson Text", serif;
-$fs: 18px;
+$fs: 14px;
 $fs2: 20px;
 
+
 .header {
+  background-color: #222;
+  position: fixed;
+  top: 0px;
+  overflow: hidden;
   border: black;
   border-style: solid;
-  text-align: center;
-  height: 100px;
+  text-align: left;
+  height: 147px;
+  width: 100%;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  color: white;
 }
 
 .header a {
@@ -16,14 +25,16 @@ $fs2: 20px;
   text-decoration: none;
   font-weight: bold;
   color: $tc2;
+  margin-left: 15px;
 }
 
-.nav-list {
+.signup-nav {
   text-align: right;
   padding-bottom: 5px;
+  position: relative;
 }
 
-.nav-list a {
+.signup-nav a {
   padding-right: 20px;
   text-decoration: none;
   color: $tc2;
@@ -31,53 +42,16 @@ $fs2: 20px;
   font-size: $fs;
 }
 
+.nav-list a {
+  font-size: $fs;
+}
+
 .nav-list a:hover {
   color: $tc;
-  font-size: $fs2;
   font-weight: bold;
 }
 
 .signup-nav a {
   position: relative;
   z-index: 100;
-}
-
-.form-group-collection label {
-  color: white;
-  padding-right: 5px;
-}
-
-#loginForm {
-  position: relative;
-  bottom: 70px;
-}
-
-.login-form-username {
-  position: relative;
-  left: 4%;
-  top: 50px;
-  z-index: 101;
-  width: 25%;
-}
-
-.login-form-password {
-  position: relative;
-  left: 19%;
-  top: 10px;
-  z-index: 100;
-  width: 25%;
-}
-
-.login-button {
-  position: relative;
-  bottom: 30px;
-  right: 8%;
-  z-index: 100;
-}
-
-.message {
-  position: relative;
-  bottom: 60px;
-  left: 2%;
-  color: white;
 }

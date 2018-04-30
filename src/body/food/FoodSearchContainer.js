@@ -44,8 +44,8 @@ class FoodSearchContainer extends Component {
   render() {
     return (
       <div className="food-search-container">
-        <h1>FoodSearchContainer</h1>
-
+        <h1>Food Search</h1>
+          <h3>Type in any food item and serving to find out if it is keto friendly </h3>
         <form onSubmit={this.handleSubmit}>
           <input
             id="foodSearchInput"
@@ -54,7 +54,7 @@ class FoodSearchContainer extends Component {
             required
           />
 
-          <input type="submit" value="Submit" />
+          <input id="submit-button" type="submit" value="Submit" />
           <br />
           <FoodResults results={this.state.results} />
         </form>

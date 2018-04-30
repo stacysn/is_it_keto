@@ -1,8 +1,33 @@
+$color: #7C7C7C;
+$font-color: white;
+$border-color: black;
+
 .food-search-container {
-  border: black;
+  border: $border-color;
   border-style: solid;
-  width: 50%;
+  width: 100%;
   display: inline-block;
   text-align: center;
   margin-top: 1%;
+}
+
+.food-search-container h1 {
+  letter-spacing: 20px
+}
+
+.food-search-container h3{
+  letter-spacing: 5px;
+  font-weight: 100
+}
+
+.food-search-container input {
+  width: 50%;
+  border: $border-color;
+  border-style: solid;
+}
+
+.food-search-container #submit-button{
+  color: $font-color;
+  width: 5%;
+  background-color: $color;
 }

@@ -48,7 +48,8 @@ class ExerciseSearchContainer extends Component {
   render() {
     return (
       <div className="exercise-search-container">
-        <h1>ExerciseSearchContainer</h1>
+        <h1>Exercise Search</h1>
+        <h3> Type in a workout activity to get more information on your results </h3>
 
         <form onSubmit={this.handleSubmit}>
           <input
@@ -58,7 +59,7 @@ class ExerciseSearchContainer extends Component {
             required
           />
 
-          <input type="submit" value="Submit" />
+          <input id="submit-button" type="submit" value="Submit" />
           <br />
           <ExerciseResults results={this.state.results} />
         </form>
