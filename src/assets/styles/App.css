@@ -18,3 +18,19 @@ body {
   font-weight: 100;
   letter-spacing: 5px;
   color: grey; }
+
+.footer-copyright {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #508484;
+  height: 50px; }
+
+.main-container {
+  min-height: 100vh;
+  /* will cover the 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 400px;
+  /* height of your footer */ }
