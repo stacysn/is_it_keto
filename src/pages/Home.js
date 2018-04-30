@@ -4,7 +4,6 @@ import FoodSearchContainer from "../body/food/FoodSearchContainer.js";
 import ExerciseSearchContainer from "../body/exercise/ExerciseSearchContainer.js";
 import { Parallax, Background } from 'react-parallax';
 
-
 class Home extends Component {
   render() {
     return (
@@ -27,7 +26,7 @@ class Home extends Component {
         <Header />
 
         <FoodSearchContainer />
-        <ExerciseSearchContainer />
+        {/* <ExerciseSearchContainer /> */}
       </div>
     );
   }
