@@ -20,7 +20,7 @@ class Home extends Component {
         <h1> Look up any servings of food to see if it is keto friendly</h1>
         <h1> Create a profile to check your consumption </h1>
       </div>
-          <div style={{ height: '400px' }} />
+          <div style={{ height: '170px' }} />
         </Parallax>
       </div>
 
