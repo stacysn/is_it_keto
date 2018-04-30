@@ -16,8 +16,10 @@ class Header extends Component {
       );
     } else {
       return (
-        <div className="header">
-          <a href="/"> Is It Keto? </a>
+        <div className="header clearfix">
+          <div className="header-logo">
+            <a href="/"> Is It Keto? </a>
+          </div>
           <LoginForm />
         </div>
       );

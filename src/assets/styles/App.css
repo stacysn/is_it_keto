@@ -6,6 +6,10 @@
   font-family: "Montserrat", arial, sans-serif;
   letter-spacing: 3px; }
 
+.parallax {
+  position: relative;
+  bottom: 90px; }
+
 body {
   margin: 0; }
 

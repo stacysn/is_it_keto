@@ -4,7 +4,6 @@ $ff: "Crimson Text", serif;
 $fs: 14px;
 $fs2: 20px;
 
-
 .header {
   background-color: #222;
   position: fixed;
@@ -13,7 +12,6 @@ $fs2: 20px;
   border: black;
   border-style: solid;
   text-align: left;
-  height: 147px;
   width: 100%;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
@@ -25,7 +23,17 @@ $fs2: 20px;
   text-decoration: none;
   font-weight: bold;
   color: $tc2;
-  margin-left: 15px;
+}
+
+.clearfix::after{
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.header-logo {
+  float: left;
+  padding-left: 20px;
 }
 
 .signup-nav {
@@ -35,7 +43,6 @@ $fs2: 20px;
 }
 
 .signup-nav a {
-  padding-right: 20px;
   text-decoration: none;
   color: $tc2;
   font-family: $ff;
@@ -54,4 +61,23 @@ $fs2: 20px;
 .signup-nav a {
   position: relative;
   z-index: 100;
+}
+
+@media only screen and (max-width: 835px)  {
+  .header-logo, 
+  #loginForm {
+    float: none;
+  }
+  .header-logo {
+    padding-left: 0;
+  }
+  #loginForm {
+    padding-right: 0;
+  }
+  .header-logo, 
+  #loginForm, 
+  .signup-nav,
+  .message {
+    text-align: center;
+  }
 }
