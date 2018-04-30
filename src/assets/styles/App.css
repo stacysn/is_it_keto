@@ -2,7 +2,9 @@
   position: relative;
   top: 200px;
   text-align: center;
-  width: 100%; }
+  width: 100%;
+  font-family: "Montserrat", arial, sans-serif;
+  letter-spacing: 3px; }
 
 body {
   margin: 0; }
@@ -10,5 +12,9 @@ body {
 .App-title {
   font-size: 1.5em; }
 
-.App-intro {
-  font-size: large; }
+.App-intro h1 {
+  position: relative;
+  margin-top: 100px;
+  font-weight: 100;
+  letter-spacing: 5px;
+  color: grey; }

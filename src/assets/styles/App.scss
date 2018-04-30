@@ -1,8 +1,12 @@
+$fs: 'Montserrat', arial, sans-serif;
+
 .App {
   position: relative;
   top: 200px;
   text-align: center;
   width: 100%;
+  font-family: $fs;
+  letter-spacing: 3px;
 }
 
 body{
@@ -13,6 +17,10 @@ body{
   font-size: 1.5em;
 }
 
-.App-intro {
-  font-size: large;
+.App-intro h1{
+  position: relative;
+  margin-top: 100px;
+  font-weight: 100;
+  letter-spacing: 5px;
+  color: grey
 }
