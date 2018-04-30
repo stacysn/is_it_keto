@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import Header from "../head/Header.js";
 import FoodSearchContainer from "../body/food/FoodSearchContainer.js";
-import ExerciseSearchContainer from "../body/exercise/ExerciseSearchContainer.js";
+
+// disconnected exercise container to focus on achieving food MVP 
+// import ExerciseSearchContainer from "../body/exercise/ExerciseSearchContainer.js";
 
 class Home extends Component {
   render() {
@@ -9,7 +11,7 @@ class Home extends Component {
       <div className="App">
         <Header />
         <FoodSearchContainer />
-        <ExerciseSearchContainer />
+        {/* <ExerciseSearchContainer /> */}
       </div>
     );
   }
