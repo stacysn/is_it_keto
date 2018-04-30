@@ -8,7 +8,7 @@ class Home extends Component {
   render() {
     return (
       <div className="App">
-      <div>
+      <div className="parallax">
         <Parallax
           bgImage={require('../assets/images/lemon.jpeg')}
           bgImageAlt="the lemon"

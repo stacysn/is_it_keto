@@ -58,42 +58,44 @@ class LoginForm extends Component {
     } else {
       return (
         <div>
-          <div className="signup-nav">
-            Need an account?
-            <a href="/signup">Sign Up!</a>
-          </div>
+            <form name="loginForm" id="loginForm" onSubmit={this.onSubmit}>
+              <div className="form-group-collection">
+                <div className="form-group login-form-username">
+                  <label>UserName:</label>
+                  <input
+                    name="userName"
+                    onChange={e => this.setState({ userName: e.target.value })}
+                    value={userName}
+                  />
+                </div>
 
-          <form name="loginForm" id="loginForm" onSubmit={this.onSubmit}>
-            <div className="form-group-collection">
-              <div className="form-group login-form-username">
-                <label>UserName:</label>
-                <input
-                  name="userName"
-                  onChange={e => this.setState({ userName: e.target.value })}
-                  value={userName}
-                />
+                <div className="form-group login-form-password">
+                  <label>Password:</label>
+                  <input
+                    type="password"
+                    name="password"
+                    onChange={e => this.setState({ password: e.target.value })}
+                    value={password}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <input type="submit" value="Login" className="login-button login-content" />
+                </div>
+
+              </div>
+                
+              <div className="message">
+                {isLoginPending && <div>Please wait...</div>}
+                {isLoginSuccess && <div>Success.</div>}
+                {loginError && <div>{loginError.message}</div>}
               </div>
 
-              <div className="form-group login-form-password">
-                <label>Password:</label>
-                <input
-                  type="password"
-                  name="password"
-                  onChange={e => this.setState({ password: e.target.value })}
-                  value={password}
-                />
+              <div className="signup-nav">
+                Need an account?
+                <a href="/signup">Sign Up!</a>
               </div>
-            </div>
-
-            <input type="submit" value="Login" className="login-button" />
-
-            <div className="message">
-              {isLoginPending && <div>Please wait...</div>}
-              {isLoginSuccess && <div>Success.</div>}
-              {loginError && <div>{loginError.message}</div>}
-            </div>
-          </form>
-
+            </form>
         </div>
       );
     }

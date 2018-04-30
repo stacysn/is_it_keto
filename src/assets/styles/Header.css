@@ -6,7 +6,6 @@
   border: black;
   border-style: solid;
   text-align: left;
-  height: 147px;
   width: 100%;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
@@ -16,8 +15,16 @@
   font-size: 40px;
   text-decoration: none;
   font-weight: bold;
-  color: #136f63;
-  margin-left: 15px; }
+  color: #136f63; }
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table; }
+
+.header-logo {
+  float: left;
+  padding-left: 20px; }
 
 .signup-nav {
   text-align: right;
@@ -25,7 +32,6 @@
   position: relative; }
 
 .signup-nav a {
-  padding-right: 20px;
   text-decoration: none;
   color: #136f63;
   font-family: "Crimson Text", serif;
@@ -41,3 +47,17 @@
 .signup-nav a {
   position: relative;
   z-index: 100; }
+
+@media only screen and (max-width: 835px) {
+  .header-logo,
+  #loginForm {
+    float: none; }
+  .header-logo {
+    padding-left: 0; }
+  #loginForm {
+    padding-right: 0; }
+  .header-logo,
+  #loginForm,
+  .signup-nav,
+  .message {
+    text-align: center; } }
