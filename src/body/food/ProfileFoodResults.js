@@ -4,6 +4,9 @@ import ProfileFoodIndexItem from "./ProfileFoodIndexItem";
 class ProfileFoodResults extends Component {
   constructor(props, context) {
     super(props, context);
+    this.state = {
+      foodEntries: this.props.foodEntries
+    };
   }
 
   foodName = food => {
@@ -40,6 +43,7 @@ class ProfileFoodResults extends Component {
 
             return (
               <ProfileFoodIndexItem
+                handleRefresh={this.props.handleRefresh}
                 id={entryId}
                 date={date}
                 dietaryFiber={dietaryFiber}
