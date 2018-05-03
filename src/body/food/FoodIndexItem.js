@@ -86,7 +86,7 @@ class FoodIndexItem extends Component {
         return (
           <div>
             <button type="submit" disabled={this.state.clicked}>
-              Added {this.props.servingSize} servings of {this.props.foodName}
+              Added {this.props.foodName} ({this.props.servingSize})
             </button>
           </div>
         );
