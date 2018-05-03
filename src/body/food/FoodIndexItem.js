@@ -59,28 +59,38 @@ class FoodIndexItem extends Component {
     } = this.props;
     let { isLoginSuccess, userId } = this.props;
     if (this.props.isLoginSuccess) {
-      return (
-        <div>
-          <div className="food-idx-item">
-            <b>
-              {foodName} &mdash; {isKeto}
-            </b>
-            <p>
-              Serving size: {servingSize} ({servingSizeGrams} g)
-            </p>
-            <p>{totalCarbs} g Total Carbs</p>
-            <p>&mdash; {dietaryFiber} g Dietary Fiber</p>
-            <p>= {netCarbs} g Net Carbs</p>
-            <button
-              type="submit"
-              onClick={this.handleNewEntry}
-              disabled={this.state.clicked}
-            >
-              {!this.state.clicked ? "Add to Profile" : "Added"}
+      if (!this.state.clicked) {
+        return (
+          <div>
+            <div className="food-idx-item">
+              <b>
+                {foodName} &mdash; {isKeto}
+              </b>
+              <p>
+                Serving size: {servingSize} ({servingSizeGrams} g)
+              </p>
+              <p>{totalCarbs} g Total Carbs</p>
+              <p>&mdash; {dietaryFiber} g Dietary Fiber</p>
+              <p>= {netCarbs} g Net Carbs</p>
+              <button
+                type="submit"
+                onClick={this.handleNewEntry}
+                disabled={this.state.clicked}
+              >
+                Add to Profile
+              </button>
+            </div>
+          </div>
+        );
+      } else {
+        return (
+          <div>
+            <button type="submit" disabled={this.state.clicked}>
+              Added {this.props.servingSize} servings of {this.props.foodName}
             </button>
           </div>
-        </div>
-      );
+        );
+      }
     } else {
       return (
         <div className="food-idx-item">
