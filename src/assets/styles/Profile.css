@@ -1,7 +1,8 @@
 .profile-container {
   text-align: center;
   background-size: cover;
-  height: 1600px; }
+  height: 1600px;
+  margin-top: 8%; }
 
 #chart {
   background-color: #f5f2eb;
@@ -14,5 +15,4 @@
   height: 85%;
   display: inline-block;
   text-align: center;
-  margin-bottom: -65%;
-  margin-top: 5%; }
+  margin-bottom: -47%; }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { browserHistory, withRouter } from "react-router-dom";
 
 import "../../assets/styles/FoodIndexItem.css";
 
@@ -39,6 +40,9 @@ class FoodIndexItem extends Component {
       console.log("New Entry Created!");
     } else {
       console.log("Failed to create new entry =[");
+    }
+    if (this.props.history.location.pathname === "/profile") {
+      this.props.handleRefresh();
     }
     this.setState({ clicked: true });
   };
@@ -102,4 +106,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(FoodIndexItem);
+export default connect(mapStateToProps)(withRouter(FoodIndexItem));

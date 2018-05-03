@@ -113,7 +113,7 @@ class ProfileContainer extends Component {
           foodEntries={this.state.resultCardData}
           handleRefresh={this.handleRefresh}
         />
-        <FoodSearchContainer />
+        <FoodSearchContainer handleRefresh={this.handleRefresh} />
       </div>
     );
   }
