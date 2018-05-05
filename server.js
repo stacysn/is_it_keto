@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
+const keys = require("./src/config/keys")
 
 //Models
 const User = require("./models/user");
@@ -16,7 +17,7 @@ const app = express();
 const router = express.Router();
 
 //mLab
-const mongoDB = "mongodb://keto:bacon5@ds215019.mlab.com:15019/is-it-keto";
+const mongoDB = keys.mongoDB;
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
