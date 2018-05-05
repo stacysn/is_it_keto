@@ -3,26 +3,27 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
+const keys = require("./src/config/keys")
 
 //Models
 const User = require("./models/user");
 const FoodEntry = require("./models/foodEntry");
 
 //Controllers
-const userController = require("./controllers/userController");
-const foodController = require("./controllers/foodController");
+const userController = require("./controllers/UserController");
+const foodController = require("./controllers/FoodController");
 
 const app = express();
 const router = express.Router();
 
 //mLab
-const mongoDB = "mongodb://keto:bacon5@ds215019.mlab.com:15019/is-it-keto";
+const mongoDB = keys.mongoDB;
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
 
-var port = process.env.API_PORT || 3001;
+var port = process.env.PORT || 3001;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(function(req, res, next) {
