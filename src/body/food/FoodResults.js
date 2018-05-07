@@ -46,6 +46,7 @@ class FoodResults extends Component {
                 servingSize={servingSize}
                 servingSizeGrams={servingSizeGrams}
                 totalCarbs={totalCarbs}
+                handleRefresh={this.props.handleRefresh}
               />
             );
           })}

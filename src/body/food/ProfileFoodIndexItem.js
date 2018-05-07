@@ -32,6 +32,7 @@ class ProfileFoodIndexItem extends Component {
     } else {
       console.log("Failed to delete entry =[");
     }
+    this.props.handleRefresh();
     this.setState({ clicked: true });
   };
 

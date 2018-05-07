@@ -16,6 +16,7 @@ class ProfileContainer extends Component {
     this.state = {
       userId: this.props.userId,
       userName: "",
+      refreshed: 0,
       resultCardData: [],
       data: {
         labels: [],
@@ -46,6 +47,14 @@ class ProfileContainer extends Component {
   }
 
   timesDataFetched = 0;
+
+  handleRefresh = () => {
+    this.handleRender();
+    let temp = this.state.refreshed;
+    temp = temp + 1;
+    this.setState({ refreshed: temp });
+  };
+
   handleRender = async () => {
     if (!this.props.isLoginSuccess) {
       this.props.history.push("/");
@@ -61,12 +70,21 @@ class ProfileContainer extends Component {
       );
       const json = await response.json();
       this.setState({ userName: json.user });
+      let temp = this.state.data;
+      temp.labels = [];
+      temp.datasets[1].data = [];
+      this.setState({ data: temp });
+
       json.dataChart.forEach(entry => {
         let temp = this.state.data;
         temp.labels.unshift(entry.date);
         temp.datasets[1].data.unshift(entry.value);
         this.setState({ data: temp });
       });
+
+      temp = [];
+      this.setState({ resultCardData: temp });
+
       json.entries.forEach(entry => {
         let temp = this.state.resultCardData;
         temp.push(entry);
@@ -91,8 +109,11 @@ class ProfileContainer extends Component {
             height="250"
           />
         </div>
-        <ProfileFoodResults foodEntries={this.state.resultCardData} />
-        <FoodSearchContainer />
+        <ProfileFoodResults
+          foodEntries={this.state.resultCardData}
+          handleRefresh={this.handleRefresh}
+        />
+        <FoodSearchContainer handleRefresh={this.handleRefresh} />
       </div>
     );
   }

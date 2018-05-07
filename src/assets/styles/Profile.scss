@@ -4,7 +4,8 @@ $bp: url("../images/almonds.jpeg");
   text-align: center;
   // background: $bp;
   background-size: cover;
-  height: 1600px;
+  height: 100%;
+  margin-top: 8%;
 }
 
 #chart {
@@ -19,5 +20,4 @@ $bp: url("../images/almonds.jpeg");
   height: 85%;
   display: inline-block;
   text-align: center;
-  margin-bottom: -45%;
 }
