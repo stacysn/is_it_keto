@@ -3,12 +3,10 @@ $font-color: white;
 $border-color: black;
 
 .food-search-container {
-  border: $border-color;
-  border-style: solid;
   width: 100%;
   display: inline-block;
   text-align: center;
-  margin-top: 1%;
+  top: -90px;
 }
 
 .food-search-container h1 {

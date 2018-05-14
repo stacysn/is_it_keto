@@ -8,26 +8,37 @@ class Home extends Component {
   render() {
     return (
       <div className="App">
-      <div className="parallax">
-        <Parallax
-          bgImage={require('../assets/images/lemon.jpeg')}
-          bgImageAlt="the lemon"
-          strength={200}
-        >
-      <div  className="App-intro">
-        <h1> Welcome to your new health app </h1>
-        <h1> Look up any servings of food to see if it is keto friendly</h1>
-        <h1> Create a profile to check your consumption </h1>
-      </div>
-          <div style={{ height: '170px' }} />
-        </Parallax>
+        <div className="parallax">
+          <Parallax
+            bgImage={require('../assets/images/lemon.jpeg')}
+            bgImageAlt="the lemon"
+            strength={200}
+          >
+          <div  className="App-intro">
+            <h1> Welcome to your new health app </h1>
+            <h1> Look up any servings of food to see if it is keto friendly</h1>
+            <h1> Create a profile to check your consumption </h1>
+          </div>
+              <div style={{ height: '300px' }} />
+          </Parallax>
+        </div>
+
+          <Header />
+
+          <FoodSearchContainer />
+
+        <div className="parallax-2">
+          <Parallax
+            bgImage={require('../assets/images/avocado.jpeg')}
+            bgImageAlt="the avocado"
+            strength={200}
+          >
+              <div style={{ height: '700px' }} />
+          </Parallax>
+        </div>
       </div>
 
-        <Header />
 
-        <FoodSearchContainer />
-        {/* <ExerciseSearchContainer /> */}
-      </div>
     );
   }
 }

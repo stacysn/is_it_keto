@@ -12,7 +12,12 @@ $bg-color: #508484;
 
 .parallax {
   position: relative;
-  bottom: 101px;
+  bottom: 105px;
+}
+
+.parallax-2{
+  position: relative;
+  top: 0px
 }
 
 body{
@@ -25,19 +30,25 @@ body{
 
 .App-intro h1{
   position: relative;
-  margin-top: 100px;
+  margin-top: 130px;
   font-weight: 100;
   letter-spacing: 5px;
   color: grey
 }
 
-
 .footer-copyright {
  position: absolute;
  bottom: 0;
  width: 100%;
- background-color: $bg-color;
- height: 50px;
+ background-color: #222222;
+ color: $bg-color;
+ height: 80px;
+}
+
+.container {
+  position: absolute;
+  margin-left: 30%;
+  bottom: 0
 }
 
 .main-container {
@@ -45,5 +56,5 @@ body{
  overflow: hidden;
  display: block;
  position: relative;
- padding-bottom: 400px; /* height of your footer */
+ padding-bottom: 280px; /* height of your footer */
 }

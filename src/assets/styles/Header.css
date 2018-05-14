@@ -5,7 +5,7 @@
   overflow: hidden;
   border: black;
   border-style: solid;
-  text-align: left;
+  text-align: right;
   width: 100%;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
@@ -29,7 +29,8 @@
 .signup-nav {
   text-align: right;
   padding-bottom: 5px;
-  position: relative; }
+  position: relative;
+  font-size: 9.7px; }
 
 .signup-nav a {
   text-decoration: none;
@@ -38,7 +39,8 @@
   font-size: 14px; }
 
 .nav-list a {
-  font-size: 14px; }
+  font-size: 14px;
+  margin-right: 20px; }
 
 .nav-list a:hover {
   color: #006989;
