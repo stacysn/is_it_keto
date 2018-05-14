@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { browserHistory, withRouter } from "react-router-dom";
 
 import "../../assets/styles/FoodIndexItem.css";
 
@@ -40,6 +41,9 @@ class FoodIndexItem extends Component {
     } else {
       console.log("Failed to create new entry =[");
     }
+    if (this.props.history.location.pathname === "/profile") {
+      this.props.handleRefresh();
+    }
     this.setState({ clicked: true });
   };
 
@@ -55,28 +59,38 @@ class FoodIndexItem extends Component {
     } = this.props;
     let { isLoginSuccess, userId } = this.props;
     if (this.props.isLoginSuccess) {
-      return (
-        <div>
-          <div className="food-idx-item">
-            <b>
-              {foodName} &mdash; {isKeto}
-            </b>
-            <p>
-              Serving size: {servingSize} ({servingSizeGrams} g)
-            </p>
-            <p>{totalCarbs} g Total Carbs</p>
-            <p>&mdash; {dietaryFiber} g Dietary Fiber</p>
-            <p>= {netCarbs} g Net Carbs</p>
-            <button
-              type="submit"
-              onClick={this.handleNewEntry}
-              disabled={this.state.clicked}
-            >
-              {!this.state.clicked ? "Add to Profile" : "Added"}
+      if (!this.state.clicked) {
+        return (
+          <div>
+            <div className="food-idx-item">
+              <b>
+                {foodName} &mdash; {isKeto}
+              </b>
+              <p>
+                Serving size: {servingSize} ({servingSizeGrams} g)
+              </p>
+              <p>{totalCarbs} g Total Carbs</p>
+              <p>&mdash; {dietaryFiber} g Dietary Fiber</p>
+              <p>= {netCarbs} g Net Carbs</p>
+              <button
+                type="submit"
+                onClick={this.handleNewEntry}
+                disabled={this.state.clicked}
+              >
+                Add to Profile
+              </button>
+            </div>
+          </div>
+        );
+      } else {
+        return (
+          <div>
+            <button type="submit" disabled={this.state.clicked}>
+              Added {this.props.foodName} ({this.props.servingSize})
             </button>
           </div>
-        </div>
-      );
+        );
+      }
     } else {
       return (
         <div className="food-idx-item">
@@ -102,4 +116,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(FoodIndexItem);
+export default connect(mapStateToProps)(withRouter(FoodIndexItem));
