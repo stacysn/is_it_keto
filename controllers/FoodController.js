@@ -28,6 +28,7 @@ exports.allUserEntries = function(req, res) {
     const entriesThisWeek = [];
     let dataChart = [];
 
+    //creating dataChart array from entries for easy Chart.js consumption
     for (i = 0; 6 >= i; i++) {
       for (j = 0; entries.length > j; j++) {
         if (
@@ -37,7 +38,8 @@ exports.allUserEntries = function(req, res) {
         ) {
           if (dataChart[i] === undefined) {
             dataChart.push({
-              date: `${currentDate.getMonth()+1}/${currentDate.getDate() - i}`,
+              date: `${currentDate.getMonth() + 1}/${currentDate.getDate() -
+                i}`,
               value:
                 parseInt(entries[j].foodData.netCarbs) -
                 parseInt(entries[j].foodData.dietaryFiber)
@@ -50,7 +52,7 @@ exports.allUserEntries = function(req, res) {
           entriesThisWeek.push(entries[j]);
         } else if (dataChart[i] === undefined) {
           dataChart.push({
-            date: `${currentDate.getMonth()+1}/${currentDate.getDate() - i}`,
+            date: `${currentDate.getMonth() + 1}/${currentDate.getDate() - i}`,
             value: 0
           });
         }
