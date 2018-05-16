@@ -37,7 +37,7 @@ exports.allUserEntries = function(req, res) {
         ) {
           if (dataChart[i] === undefined) {
             dataChart.push({
-              date: `${currentDate.getMonth()}/${currentDate.getDate() - i}`,
+              date: `${currentDate.getMonth()+1}/${currentDate.getDate() - i}`,
               value:
                 parseInt(entries[j].foodData.netCarbs) -
                 parseInt(entries[j].foodData.dietaryFiber)
@@ -50,7 +50,7 @@ exports.allUserEntries = function(req, res) {
           entriesThisWeek.push(entries[j]);
         } else if (dataChart[i] === undefined) {
           dataChart.push({
-            date: `${currentDate.getMonth()}/${currentDate.getDate() - i}`,
+            date: `${currentDate.getMonth()+1}/${currentDate.getDate() - i}`,
             value: 0
           });
         }
