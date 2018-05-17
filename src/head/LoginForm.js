@@ -45,6 +45,7 @@ class LoginForm extends Component {
         </div>
       );
     } else if (this.props.isLoginSuccess === true) {
+      this.props.history.push("/profile");
       return (
         <div>
           <nav className="nav-list">
@@ -84,7 +85,7 @@ class LoginForm extends Component {
                 </div>
 
               </div>
-                
+
               <div className="message">
                 {isLoginPending && <div>Please wait...</div>}
                 {isLoginSuccess && <div>Success.</div>}
