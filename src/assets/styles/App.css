@@ -22,10 +22,11 @@ body {
 
 .App-intro h1 {
   position: relative;
-  margin-top: 9.5%;
+  top: 40px;
+  margin-top: 7.5%;
   font-weight: 100;
   letter-spacing: 5px;
-  color: grey; }
+  color: black; }
 
 .footer-copyright {
   position: absolute;

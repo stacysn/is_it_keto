@@ -91,11 +91,6 @@ class LoginForm extends Component {
                 {isLoginSuccess && <div>Success.</div>}
                 {loginError && <div>{loginError.message}</div>}
               </div>
-
-              <div className="signup-nav">
-                Need an account?
-                <a href="/signup">Sign Up!</a>
-              </div>
             </form>
         </div>
       );
