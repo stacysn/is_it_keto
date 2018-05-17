@@ -37,17 +37,21 @@ class FoodSearchContainer extends Component {
     }
     const data = await response.json();
     const results = data.foods;
-    this.setState({ results });
+    if (results !== undefined) {
+      this.setState({ results });
+    }
+    else {
+      alert("invalid food");
+    }
     console.log("new state: ", this.state.results);
   };
 
   render() {
     return (
       <div className="food-search-container">
-        <h1>Food Search</h1>
-        <h3>
-          Type in any food item and serving to find out if it is keto friendly{" "}
-        </h3>
+        <h2>
+          Type any food item and serving size to find out if it's keto friendly{" "}
+        </h2>
         <form onSubmit={this.handleSubmit}>
           <input
             id="foodSearchInput"

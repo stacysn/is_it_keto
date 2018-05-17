@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ProfileFoodIndexItem from "./ProfileFoodIndexItem";
+import "../../assets/styles/FoodResults.css";
 
 class ProfileFoodResults extends Component {
   constructor(props, context) {
@@ -25,6 +26,7 @@ class ProfileFoodResults extends Component {
     return (
       <div className="food-results-container">
         <h1>Food From the Last Week</h1>
+        <hr></hr>
         <div id="food-results">
           {this.props.foodEntries.map((element, index) => {
             const entryId = element._id;

@@ -22,7 +22,7 @@ $fs2: 20px;
   font-size: 40px;
   text-decoration: none;
   font-weight: bold;
-  color: $tc2;
+  color: white;
 }
 
 .clearfix::after{
@@ -51,7 +51,7 @@ $fs2: 20px;
 }
 
 .nav-list a {
-  font-size: $fs;
+  font-size: $fs*1.35;
   margin-right: 20px;
 }
 

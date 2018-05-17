@@ -59,6 +59,8 @@ class SignUpForm extends Component {
               <input
                 name="userName"
                 id="userName"
+                minlength="4"
+                maxlength="8"
                 placeholder="User Name"
                 value={this.state.userName}
                 onChange={this.handleChange}
@@ -71,6 +73,8 @@ class SignUpForm extends Component {
                 type="password"
                 id="password"
                 placeholder="password"
+                minlength="6"
+                maxlength="10"
                 value={this.state.password}
                 onChange={this.handleChange}
                 autoFocus

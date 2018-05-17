@@ -1,14 +1,6 @@
 const FoodEntry = require("../models/foodEntry.js");
 const User = require("../models/user.js");
 
-//for testing only
-exports.entryGet = function(req, res) {
-  FoodEntry.find(function(err, entries) {
-    if (err) res.send(err);
-    res.json(entries);
-  });
-};
-
 exports.newEntry = function(req, res) {
   let entry = new FoodEntry();
   entry.foodData = req.body.foodData;
@@ -28,6 +20,7 @@ exports.allUserEntries = function(req, res) {
     const entriesThisWeek = [];
     let dataChart = [];
 
+    //creating dataChart array from entries for easy Chart.js consumption
     for (i = 0; 6 >= i; i++) {
       for (j = 0; entries.length > j; j++) {
         if (
@@ -37,7 +30,8 @@ exports.allUserEntries = function(req, res) {
         ) {
           if (dataChart[i] === undefined) {
             dataChart.push({
-              date: `${currentDate.getMonth()}/${currentDate.getDate() - i}`,
+              date: `${currentDate.getMonth() + 1}/${currentDate.getDate() -
+                i}`,
               value:
                 parseInt(entries[j].foodData.netCarbs) -
                 parseInt(entries[j].foodData.dietaryFiber)
@@ -50,7 +44,7 @@ exports.allUserEntries = function(req, res) {
           entriesThisWeek.push(entries[j]);
         } else if (dataChart[i] === undefined) {
           dataChart.push({
-            date: `${currentDate.getMonth()}/${currentDate.getDate() - i}`,
+            date: `${currentDate.getMonth() + 1}/${currentDate.getDate() - i}`,
             value: 0
           });
         }

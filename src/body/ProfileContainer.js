@@ -48,6 +48,7 @@ class ProfileContainer extends Component {
 
   timesDataFetched = 0;
 
+  //called when events requiring re-render occur in child Components
   handleRefresh = () => {
     this.handleRender();
     let temp = this.state.refreshed;
@@ -69,12 +70,14 @@ class ProfileContainer extends Component {
         }
       );
       const json = await response.json();
+      //handling the actual chart data
       this.setState({ userName: json.user });
       let temp = this.state.data;
       temp.labels = [];
       temp.datasets[1].data = [];
       this.setState({ data: temp });
 
+      //handling the chart data labels
       json.dataChart.forEach(entry => {
         let temp = this.state.data;
         temp.labels.unshift(entry.date);
@@ -82,6 +85,7 @@ class ProfileContainer extends Component {
         this.setState({ data: temp });
       });
 
+      //preparing the resultsCard data to be passed to this weeks food
       temp = [];
       this.setState({ resultCardData: temp });
 
@@ -94,6 +98,7 @@ class ProfileContainer extends Component {
   };
 
   render() {
+    //only renders calls handleRender once
     if (this.timesDataFetched === 0) {
       this.handleRender();
     }

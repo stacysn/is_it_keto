@@ -3,7 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
-const keys = require("./src/config/keys")
+const keys = require("./src/config/keys");
 
 //Models
 const User = require("./models/user");
@@ -51,20 +51,31 @@ router.get("/", function(req, res) {
 //user routes
 router
   .route("/users")
-  .get(userController.userGet)
   .post(userController.userSignUp);
 
 router.route("/userLogin").post(userController.userLogin);
 
 router
   .route("/foodEntry")
-  .get(foodController.entryGet)
   .post(foodController.newEntry)
   .delete(foodController.deleteEntry);
 
 router.route("/userFoodEntries").post(foodController.allUserEntries);
 
 app.use("/api", router);
+
+//run this if on heroku
+if (process.env.NODE_ENV === "production") {
+  //express will serve production assets
+  app.use(express.static("build"));
+
+  //express will serve index.html file if it does not know the route
+  const path = require("path");
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "build", "index.html"));
+  });
+}
+
 app.listen(port, function() {
   console.log("api running on port " + port);
 });
