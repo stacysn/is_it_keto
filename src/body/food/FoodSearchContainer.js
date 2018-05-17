@@ -37,7 +37,12 @@ class FoodSearchContainer extends Component {
     }
     const data = await response.json();
     const results = data.foods;
-    this.setState({ results });
+    if (results !== undefined) {
+      this.setState({ results });
+    }
+    else {
+      alert("invalid food");
+    }
     console.log("new state: ", this.state.results);
   };
 

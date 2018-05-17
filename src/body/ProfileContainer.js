@@ -70,7 +70,6 @@ class ProfileContainer extends Component {
         }
       );
       const json = await response.json();
-      console.log(json);//--> remove me
       //handling the actual chart data
       this.setState({ userName: json.user });
       let temp = this.state.data;
