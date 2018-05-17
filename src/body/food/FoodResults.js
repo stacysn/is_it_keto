@@ -23,7 +23,8 @@ class FoodResults extends Component {
   render() {
     return (
       <div className="food-results-container">
-        <h1>FoodResults</h1>
+        <h1>Results</h1>
+        <hr></hr>
         <div id="food-results">
           {this.props.results.map((element, index) => {
             const totalCarbs = element.nf_total_carbohydrate;
