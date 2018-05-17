@@ -16,16 +16,33 @@ class App extends Component {
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/signup" component={SignUp} />
           </Switch>
-
-
         </div>
-          <div className="footer-copyright">
-          <div className="container" style={{fontSize: '16px'}}>
-            © 2018 Copyright
-            Created by <a href='#'>Ryan Barrett, Daryl Lazaro, & Stacy Suen</a>
+        <div className="footer-copyright">
+          <div className="container" style={{ fontSize: "16px" }}>
+            © 2018 Copyright:{" "}
+            <a
+              className="copyright-name"
+              target="_blank"
+              href="https://github.com/ryan-barrett"
+            >
+              Ryan Barrett
+            </a>,{" "}
+            <a
+              className="copyright-name"
+              target="_blank"
+              href="https://github.com/dalazaro"
+            >
+              Daryl Lazaro
+            </a>, &{" "}
+            <a
+              className="copyright-name"
+              target="_blank"
+              href="https://github.com/stacysn"
+            >
+              Stacy Suen
+            </a>
           </div>
         </div>
-
       </div>
     );
   }

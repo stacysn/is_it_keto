@@ -41,13 +41,13 @@ body{
  bottom: 0;
  width: 100%;
  background-color: #222222;
- color: $bg-color;
+ color: white;
  height: 80px;
 }
 
 .container {
   position: absolute;
-  margin-left: 30%;
+  margin-left: 75%;
   bottom: 0
 }
 
@@ -57,4 +57,8 @@ body{
  display: block;
  position: relative;
  padding-bottom: 280px; /* height of your footer */
+}
+
+.copyright-name{
+  color: white;
 }
