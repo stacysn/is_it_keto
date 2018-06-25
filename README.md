@@ -1,11 +1,16 @@
-<h1>Is It Keto?</h1>
-<p> An app to keep yourself accountable.</p>
+<h1> [Is It Keto?](https://isitketo.herokuapp.com) </h1>
+<p> An app to keep yourself accountable by simply typing in servings of food to see if it is [keto](https://ketodash.com/keto-diet) friendly. Users are able to create a profile to check consumption on a chart. </p>
+
+<p align="center"><img src="/public/images/checkKeto.png" height=300></p>
+
 <h2>Planning:</h2>
 <ul>
   <li><a href="https://imgur.com/a/V9iGE">Wireframes</a></li>
   <li><a href="https://trello.com/b/FJ7WQjop/sprints">Trello</a></li>
 </ul>
+
 <h2>Technologies:</h2>
+
 <ul>
 <li><a href="https://reactjs.org/">React.js</a></li>
 <li><a href="https://redux.js.org/">Redux</a></li>
@@ -13,7 +18,9 @@
 <li><a href="https://developer.nutritionix.com/">nutritionix API</a></li>
 <li><a href="https://www.chartjs.org/">Chart.js</a></li>
 </ul>
+
 <h2>Contributing</h2>
+
 <ol>
 <li>Note: This app will not work unless you receive the API key from the devs or add your own</li><br>
 <li>Fork the repository from the Github page.</li><br>
