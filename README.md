@@ -1,5 +1,5 @@
-<h1> [Is It Keto?](https://isitketo.herokuapp.com) </h1>
-<p> An app to keep yourself accountable by simply typing in servings of food to see if it is [keto](https://ketodash.com/keto-diet) friendly. Users are able to create a profile to check consumption on a chart. </p>
+<h1><a href="https://isitketo.herokuapp.com/"> Is It Keto? </a></h1>
+<p> An app to keep yourself accountable by simply typing in servings of food to see if it is <a href="https://ketodash.com/keto-diet">keto </a> friendly. Users are able to create a profile to check consumption on a chart. </p>
 
 <p align="center"><img src="/public/images/checkKeto.png" height=300></p>
 
