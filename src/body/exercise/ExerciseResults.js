@@ -17,18 +17,18 @@ class ExerciseResults extends Component {
       <div className="exercise-results-container">
         <h1>ExerciseResults</h1>
         <div id="exercise-results">
-          {this.props.results.map( (element, index) => {
+          {this.props.results.map((element, index) => {
             const calories = element.nf_calories;
             const duration = element.duration_min;
 
-            return(
+            return (
               <ExerciseIndexItem
-              calories={ calories }
-              duration={ duration }
-              exerciseName={ this.exerciseName(element.name) }
-              key={ `exercise-idx-${index}` }
+                calories={calories}
+                duration={duration}
+                exerciseName={this.exerciseName(element.name)}
+                key={`exercise-idx-${index}`}
               />
-            )
+            );
           })}
         </div>
       </div>
