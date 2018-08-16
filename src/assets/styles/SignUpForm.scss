@@ -3,30 +3,43 @@ $ff2: 'Crimson Text', serif;
 $bp: url('../images/avocado.jpeg');
 $anim: 5s fadein;
 
+div {
+  &#background-container {
+    background-image: $bp;
+    height: 90em;
+    overflow: hidden;
+    background-size: cover;
+  }
+}
+
 .sign-up-form {
   height: 600px;
   text-align: center;
-  background: $bp;
   height: 1600px;
-  background-size: cover;
   font-family: $ff2;
+}
+
+.sign-up-form {
+  form {
+    margin-top: 14em;
+  }
+}
+
+label {
+  font-size: 1.5em;
 }
 
 input {
   padding: 10px;
   border: 3px;
-  margin: 3px;
-}
-
-#name, #weight, #userName{
-  text-align: center;
-  width: 180px;
-  animation: $anim;
+  margin: 8px;
+  width: 15em;
 }
 
 button {
   font-family: $ff2;
   margin-top: 20px;
+  margin-left: 3em;
 	border : solid 3px #288c1a;
 	border-radius : 20px 6px 20px 6px ;
 	font-size : 20px;
@@ -36,11 +49,18 @@ button {
   animation: $anim;
 }
 
-h4 {
-  font-size: 30px;
-  margin-top: 0px;
-  margin-bottom: 30px;
-  padding-top: 45px;
+#name-label {
+  margin-left: 1.5em;
+}
+
+#weight-label {
+  margin-left: 1em;
+}
+
+.header {
+  a {
+    float: left;
+  }
 }
 
 @-webkit-keyframes fadein {

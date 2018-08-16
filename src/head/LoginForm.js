@@ -35,7 +35,7 @@ class LoginForm extends Component {
 			return (
 				<div>
 					<nav className="nav-list">
-						<a href="/home" type="submit" onClick={this.logout}>
+						<a id="logout-button" href="/home" type="submit" onClick={this.logout}>
 							Logout
 						</a>
 					</nav>
@@ -68,7 +68,7 @@ class LoginForm extends Component {
 							</div>
 
 							<div className="form-group login-form-password">
-								<label>Password:</label>
+								<label id="password-label">Password:</label>
 								<input
 									type="password"
 									name="password"
