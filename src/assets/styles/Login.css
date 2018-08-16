@@ -1,6 +1,12 @@
 #loginForm {
   float: right;
   padding-right: 20px; }
+  #loginForm #password-label {
+    margin-left: 1em; }
+
+.login-button {
+  width: 7em;
+  margin-left: 2em; }
 
 .form-group {
   display: inline-block; }
@@ -8,3 +14,7 @@
 .message {
   text-align: right;
   color: white; }
+
+#logout-button {
+  float: right;
+  font-size: 1.5em; }

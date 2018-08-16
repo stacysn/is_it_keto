@@ -14,7 +14,7 @@ class SignUpForm extends Component {
       name: "",
       weight: "",
       feet: "",
-      inches:""
+      inches: ""
     };
   }
 
@@ -52,15 +52,15 @@ class SignUpForm extends Component {
       this.props.history.push("/");
     } else {
       return (
-        <div>
+        <div id="background-container">
           <div className="sign-up-form">
             <form onSubmit={this.handleSignUp}>
-              <h4>Sign Up</h4>
+              <label htmlFor="username">Username: </label>
               <input
                 name="userName"
                 id="userName"
-                minlength="4"
-                maxlength="8"
+                minLength="4"
+                maxLength="8"
                 placeholder="User Name"
                 value={this.state.userName}
                 onChange={this.handleChange}
@@ -73,14 +73,14 @@ class SignUpForm extends Component {
                 type="password"
                 id="password"
                 placeholder="password"
-                minlength="6"
-                maxlength="10"
+                minLength="6"
+                maxLength="10"
                 value={this.state.password}
                 onChange={this.handleChange}
                 autoFocus
               />
               <br />
-              <label htmlFor="name">Name: </label>
+              <label id="name-label" htmlFor="name">Name: </label>
               <input
                 name="name"
                 id="name"
@@ -90,7 +90,7 @@ class SignUpForm extends Component {
                 autoFocus
               />
               <br />
-              <label htmlFor="name">Weight: </label>
+              <label id="weight-label" htmlFor="name">Weight: </label>
               <input
                 name="weight"
                 id="weight"
@@ -100,25 +100,6 @@ class SignUpForm extends Component {
                 autoFocus
               />
               <br />
-              <label htmlFor="name">Height: </label>
-              <input
-                name="feet"
-                id="feet"
-                placeholder="Feet"
-                value={this.state.feet}
-                onChange={this.handleChange}
-                autoFocus
-              />
-              <br />
-                <input
-                  name="inches"
-                  id="inches"
-                  placeholder="Inches"
-                  value={this.state.inches}
-                  onChange={this.handleChange}
-                  autoFocus
-                />
-                <br />
               <button type="submit">Sign Up</button>
             </form>
           </div>
@@ -142,6 +123,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(
-  withRouter(SignUpForm)
-);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(SignUpForm));
