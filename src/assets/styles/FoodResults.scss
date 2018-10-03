@@ -6,6 +6,20 @@
   margin-bottom: 5%;
 }
 
-hr{
+#food-results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.food-idx-item {
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin:1em;
+  margin-top: 2em;
+
+}
+
+hr {
   width: 70%;
 }
