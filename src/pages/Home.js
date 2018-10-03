@@ -6,14 +6,9 @@ import { Parallax, Background } from "react-parallax";
 
 class Home extends Component {
   render() {
-    return (
-      <div className="App">
+    return <div className="App">
         <div className="parallax">
-          <Parallax
-            bgImage={require("../assets/images/lemon.jpeg")}
-            bgImageAlt="the lemon"
-            strength={200}
-          >
+          <Parallax bgImage={require("../assets/images/lemon.jpeg")} bgImageAlt="the lemon" strength={200}>
             <div className="App-intro">
               <h1> Welcome to your new health app </h1>
               <h1>
@@ -31,19 +26,17 @@ class Home extends Component {
           </Parallax>
         </div>
         <Header />
-        <FoodSearchContainer />
-
+      <div id="home-filler">
+          <h2>
+            Search any food to find out if it's keto friendly!
+          </h2>
+        </div>
         <div className="parallax-2">
-          <Parallax
-            bgImage={require("../assets/images/avocado.jpeg")}
-            bgImageAlt="the avocado"
-            strength={200}
-          >
+          <Parallax bgImage={require("../assets/images/avocado.jpeg")} bgImageAlt="the avocado" strength={200}>
             <div style={{ height: "700px" }} />
           </Parallax>
         </div>
-      </div>
-    );
+      </div>;
   }
 }
 
