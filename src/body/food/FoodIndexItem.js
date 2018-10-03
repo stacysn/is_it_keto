@@ -73,6 +73,7 @@ class FoodIndexItem extends Component {
               <p>&mdash; {dietaryFiber} g Dietary Fiber</p>
               <p>= {netCarbs} g Net Carbs</p>
               <button
+                class="profile-add"
                 type="submit"
                 onClick={this.handleNewEntry}
                 disabled={this.state.clicked}
