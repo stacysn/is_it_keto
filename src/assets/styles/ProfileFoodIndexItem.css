@@ -1,7 +1,5 @@
-.food-idx-item {
-  border: 2px solid black; }
-
 .food-idx-item-btn {
   background-color: red;
   border: 2px solid black;
-  margin-bottom: 1%; }
+  margin-bottom: 1%;
+  margin-right: 3em; }

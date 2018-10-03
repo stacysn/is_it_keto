@@ -66,13 +66,13 @@ class FoodIndexItem extends Component {
               <b>
                 {foodName} &mdash; {isKeto}
               </b>
-              <p>
-                Serving size: {servingSize} ({servingSizeGrams} g)
-              </p>
+              <p>Serving: {servingSize}</p>
+              <p>Grams: {servingSizeGrams} g</p>
               <p>{totalCarbs} g Total Carbs</p>
               <p>&mdash; {dietaryFiber} g Dietary Fiber</p>
               <p>= {netCarbs} g Net Carbs</p>
               <button
+                class="profile-add"
                 type="submit"
                 onClick={this.handleNewEntry}
                 disabled={this.state.clicked}
@@ -97,9 +97,8 @@ class FoodIndexItem extends Component {
           <b>
             {foodName} &mdash; {isKeto}
           </b>
-          <p>
-            Serving size: {servingSize} ({servingSizeGrams} g)
-          </p>
+          <p>Serving: {servingSize}</p>
+          <p>Grams: {servingSizeGrams} g</p>
           <p>{totalCarbs} g Total Carbs</p>
           <p>&mdash; {dietaryFiber} g Dietary Fiber</p>
           <p>= {netCarbs} g Net Carbs</p>
