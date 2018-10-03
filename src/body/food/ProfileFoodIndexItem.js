@@ -50,26 +50,28 @@ class ProfileFoodIndexItem extends Component {
     } = this.props;
     let { isLoginSuccess, userId } = this.props;
     if (this.props.isLoginSuccess) {
-      return <div>
+      return (
+        <div>
           <div className="food-idx-item">
             <p>{date}</p>
             <b>
               {foodName} &mdash; {isKeto}
             </b>
-            <p>
-              Serving: {servingSize}
-            </p>
-            <p>
-              Grams: {servingSizeGrams} g
-            </p>
+            <p>Serving: {servingSize}</p>
+            <p>Grams: {servingSizeGrams} g</p>
             <p>{totalCarbs} g Total Carbs</p>
             <p>&mdash; {dietaryFiber} g Dietary Fiber</p>
             <p>= {netCarbs} g Net Carbs</p>
-            <button className="food-idx-item-btn" type="submit" onClick={this.handleDeleteEntry}>
+            <button
+              className="food-idx-item-btn"
+              type="submit"
+              onClick={this.handleDeleteEntry}
+            >
               {!this.state.clicked ? "Delete" : "Deleted"}
             </button>
           </div>
-        </div>;
+        </div>
+      );
     } else {
       return (
         <div className="food-idx-item">
@@ -77,12 +79,8 @@ class ProfileFoodIndexItem extends Component {
           <b>
             {foodName} &mdash; {isKeto}
           </b>
-          <p>
-            Serving: {servingSize}
-          </p>
-          <p>
-            Grams: {servingSizeGrams} g
-            </p>
+          <p>Serving: {servingSize}</p>
+          <p>Grams: {servingSizeGrams} g</p>
           <p>{totalCarbs} g Total Carbs</p>
           <p>&mdash; {dietaryFiber} g Dietary Fiber</p>
           <p>= {netCarbs} g Net Carbs</p>
