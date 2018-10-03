@@ -63,14 +63,14 @@ class ProfileFoodIndexItem extends Component {
             <p>{totalCarbs} g Total Carbs</p>
             <p>&mdash; {dietaryFiber} g Dietary Fiber</p>
             <p>= {netCarbs} g Net Carbs</p>
+            <button
+              className="food-idx-item-btn"
+              type="submit"
+              onClick={this.handleDeleteEntry}
+            >
+              {!this.state.clicked ? "Delete" : "Deleted"}
+            </button>
           </div>
-          <button
-            className="food-idx-item-btn"
-            type="submit"
-            onClick={this.handleDeleteEntry}
-          >
-            {!this.state.clicked ? "Delete" : "Deleted"}
-          </button>
         </div>
       );
     } else {
