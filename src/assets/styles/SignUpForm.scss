@@ -65,10 +65,12 @@ button {
 
 .footer-copyright-signup {
   height: 18em;
-}
 
-.signup-text {
-  text-align: center;
+  div {
+    &.signup-text {
+      text-align: center;
+    }
+  }
 }
 
 @-webkit-keyframes fadein {

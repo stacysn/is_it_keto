@@ -49,8 +49,6 @@ class SignUpForm extends Component {
     let { userName, password } = this.state;
     let { isLoginPending, isLoginSuccess, loginError } = this.props;
     if (isLoginSuccess) {
-      const foot = document.querySelector(".footer-copyright");
-      foot.classList.remove('footer-copyright-signup');
       this.props.history.push("/");
     } else {
       return <div id="background-container">
