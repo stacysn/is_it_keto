@@ -49,62 +49,33 @@ class SignUpForm extends Component {
     let { userName, password } = this.state;
     let { isLoginPending, isLoginSuccess, loginError } = this.props;
     if (isLoginSuccess) {
+      const foot = document.querySelector(".footer-copyright");
+      foot.classList.remove('footer-copyright-signup');
       this.props.history.push("/");
     } else {
-      return (
-        <div id="background-container">
+      return <div id="background-container">
           <div className="sign-up-form">
             <form onSubmit={this.handleSignUp}>
               <label htmlFor="username">Username: </label>
-              <input
-                name="userName"
-                id="userName"
-                minLength="4"
-                maxLength="8"
-                placeholder="User Name"
-                value={this.state.userName}
-                onChange={this.handleChange}
-                autoFocus
-              />
+              <input name="userName" id="userName" minLength="4" maxLength="8" placeholder="User Name" value={this.state.userName} onChange={this.handleChange} autoFocus />
               <br />
               <label htmlFor="password">Password: </label>
-              <input
-                name="password"
-                type="password"
-                id="password"
-                placeholder="password"
-                minLength="6"
-                maxLength="10"
-                value={this.state.password}
-                onChange={this.handleChange}
-                autoFocus
-              />
+              <input name="password" type="password" id="password" placeholder="password" minLength="6" maxLength="10" value={this.state.password} onChange={this.handleChange} autoFocus />
               <br />
-              <label id="name-label" htmlFor="name">Name: </label>
-              <input
-                name="name"
-                id="name"
-                placeholder="Name"
-                value={this.state.name}
-                onChange={this.handleChange}
-                autoFocus
-              />
+              <label id="name-label" htmlFor="name">
+                Name:{" "}
+              </label>
+              <input name="name" id="name" placeholder="Name" value={this.state.name} onChange={this.handleChange} autoFocus />
               <br />
-              <label id="weight-label" htmlFor="name">Weight: </label>
-              <input
-                name="weight"
-                id="weight"
-                placeholder="Weight"
-                value={this.state.weight}
-                onChange={this.handleChange}
-                autoFocus
-              />
+              <label id="weight-label" htmlFor="name">
+                Weight:{" "}
+              </label>
+              <input name="weight" id="weight" placeholder="Weight" value={this.state.weight} onChange={this.handleChange} autoFocus />
               <br />
               <button type="submit">Sign Up</button>
             </form>
           </div>
-        </div>
-      );
+      </div>;
     }
   }
 }
