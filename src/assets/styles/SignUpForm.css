@@ -31,7 +31,7 @@ button {
   font-size: 20px;
   color: #ffffff;
   padding: 1px 17px;
-  background-color: #7F9C96;
+  background-color: #7f9c96;
   animation: 5s fadein; }
 
 #name-label {
@@ -42,6 +42,11 @@ button {
 
 .header a {
   float: left; }
+
+.footer-copyright-signup {
+  height: 18em; }
+  .footer-copyright-signup div.signup-text {
+    text-align: center; }
 
 @-webkit-keyframes fadein {
   from {
