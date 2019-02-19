@@ -31,9 +31,7 @@ class Home extends Component {
           </Parallax>
         </div>
         <Header />
-        <div id="home-filler">
-          <h2>Search any food to find out if it's keto friendly!</h2>
-        </div>
+        <FoodSearchContainer />
         <div className="parallax-2">
           <Parallax
             bgImage={require("../assets/images/avocado.jpeg")}
