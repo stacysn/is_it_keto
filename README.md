@@ -26,7 +26,7 @@
 <li>Fork the repository from the Github page.</li><br>
 <li>Clone a copy to your local machine with $ git clone git@github.com:YOUR-GITHUB-USER-NAME/is_it_keto.git</li><br>
 <li>Run 'npm install' to install all the packages</li><br>
-<li> Run 'npm start dev' to run the project on http://localhost:3000</li><br>
+<li> Run 'npm run start' and in another tab 'npm run dev' to run the project on http://localhost:3000</li><br>
 <li>Commit your local changes by using '$ git commit -m "nice detailed message here..."'</li><br>
 <li>Once you've made sure all your changes work correctly and have been committed, push your local changes back to github with '$ git push -u origin master'</li><br>
 <li>Visit your fork on GitHub.com (https://github.com/YOUR-USER-NAME/is_it_keto) and create a pull request for your changes.</li><br>
